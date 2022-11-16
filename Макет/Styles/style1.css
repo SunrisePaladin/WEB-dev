@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+    justify-content:center;
+}
+
+a.internal:link {
+    color: #497DDD; 
+    border-bottom: 1px dashed; 
+  }
+a.internal:hover {
+    text-decoration: underline;
+    color: purple;
+}
+a.internal:active {
+    color: red;
+}
+a.internal:visited{
+    color: yellow;
+}
+:root{
+    font-size: 62.5%;
+    --primary-color: lightblue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    font-size: 1rem;
+    color:var(--primary-color);
+}
