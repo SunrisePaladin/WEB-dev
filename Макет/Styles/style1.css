@@ -1,30 +1,236 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
-body{
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap');
+
+
+:root{
+    font-size: 62.5%;
     font-family: 'Roboto Condensed', sans-serif;
+    --main-text: #2a2a2a;
+    --btn-colour:#6A19F5;
+    --foot-colour:#FFF2D6;
+    --btn_1:rgb(238, 229, 229);
+    --btn_2:rgb(209, 209, 209);
+    --btn_3: rgb(186, 186, 186);
+    --s1:#74C5FF;
+    --s2:#FF6D8D;
+    --s4:#2580C1;
+}
+
+body{
+    font-size: 1.6rem;
+    /*font-family: 'Work Sans', sans-serif;*/
     justify-content:center;
 }
 
-a.internal:link {
-    color: #497DDD; 
-    border-bottom: 1px dashed; 
-  }
-a.internal:hover {
-    text-decoration: underline;
-    color: purple;
-}
-a.internal:active {
-    color: red;
-}
-a.internal:visited{
-    color: yellow;
-}
-:root{
-    font-size: 62.5%;
-    --primary-color: lightblue;
-    font-family: Arial, Helvetica, sans-serif;
+.hd{
+    width:345px;
+    display:inline-f;
 }
 
-h1{
+.hid{
+    visibility: collapse;
     font-size: 1rem;
-    color:var(--primary-color);
+    margin:0px;
+    size: 0cm;
+    /* color:var(--primary-color); */
+}
+
+.clas{
+    width: 345px;
+    left: 15px;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 41px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color:var(--main-text);
+    height: 41px;
+    top: 140px;
+    text-transform: uppercase;
+}
+
+.he2{
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 41px;
+    text-align: center;
+    width: 345px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin:5px;
+}
+
+.insp{
+    font-size: 28.6px;
+    font-weight: 500;
+    line-height: 37.2px;
+    width: 345px;
+}
+
+blockquote{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.p_main{
+    font-family: 'Work Sans', sans-serif;
+    font-style:normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color:var(--main-text);
+    width: 345px;
+    height: 105px;
+    color: var(--main-text);
+}
+
+.mid{
+    text-align: center;
+    font-weight: 500;
+    height: 50px;
+}
+
+.r_btn{
+    display:inline-flex;
+    justify-content: center;
+    width:345px;
+}
+
+.menu{
+    border-color: var(--btn_1) var(--btn_2) var(--btn_3);
+    padding: 0px;
+    margin-left: 200px;
+}
+
+section{
+    padding:5px;
+}
+
+.s1{
+    background-color: var(--s1);
+}
+
+.s2{
+    background-color: var(--s2);
+}
+
+.s3{
+    background-color: white;
+}
+
+.s4{
+    background-color: var(--s4);
+}
+
+.s5{
+    background-color: white;
+}
+
+.ft{
+    background-color: var(--foot-colour); 
+    height:auto;
+    padding:5px;
+}
+
+.m_btn{
+    border-color: var(--btn_1) var(--btn_2) var(--btn_3);
+    background-color: var(--btn-colour); 
+    width: 345px; 
+    height: 50px;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: white;
+    border-radius: 8px;
+}
+
+.otz{
+    width:308px; 
+    height:auto;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.p1{
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 39px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+}
+
+.big_txt{
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 39px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--main-text);
+    width: 345px;
+    text-align: center;
+}
+
+.mrg30{
+    margin-bottom: 30px;
+}
+
+.mrg50{
+    margin-bottom: 50px;
+}
+
+.wh{
+    color:white;
+}
+
+.end{
+    width:345px;
+    text-align: center;
+}
+
+.botm{
+    margin-bottom: 25px; 
+    width: 250px; 
+    height: 50px;
+}
+
+.links{
+    display:inline-flex;
+    width:345px;
+}
+
+
+a:link {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration:overline;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:active {
+    background-color: DarkSalmon ;
+}
+
+cite{
+    opacity: 0.3;
 }

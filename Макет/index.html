@@ -7,113 +7,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mathpolis-mobile</title>
     <link rel="stylesheet" href="/Styles/style1.css">
+    <link rel="stylesheet" href="/Styles/normalize.css">
 </head>
+
 <body>
     <header>
-        <div style="width:375px ; height:65px">
-            <span> <a href="#"><img src="/pic/mathpolis_logo.png" alt="" width="90" height="50"
-                        style="margin-right: 150px;"></a>
-                <button style="border-color: rgb(238, 229, 229) rgb(209, 209, 209) rgb(186, 186, 186);">
-                    <img src="/pic/tree.png" alt="DropMenu" width="30" height="30">
-                </button>
-            </span>
+        <!-- <div style="width:375px ; height:65px"> -->
+        <div class="hd"> <a href="#"><img src="/pic/mathpolis_logo.png" alt="" width="90" height="50"></a>
+            <button class="menu">
+                <img src="/pic/tree.png" alt="DropMenu" width="30" height="30">
+            </button>
         </div>
 
-        <nav>
+        <!-- <nav>
             <ul>
                 <li><a href="#a" class="internal">Lorem</a></li>
                 <li><a href="#b" class="internal">Nihil</a></li>
                 <li><a href="#c" class="internal">Deleniti</a></li>
                 <li><a href="#d" class="internal">Obcaecati</a></li>
             </ul>
-        </nav>
+        </nav> -->
     </header>
     <main>
-        <section style="background-color: #74C5FF;">
-            <h1 id="a">Nachalo</h1>
-            <h2>Volunteers</h2>
-            <p>Volunteers</p>
-            <p style=" font-weight: 500;">Make magical math moments in your community.</p>
-            <p style="width: 345px; height: 105px;">Mathopolis relies on volunteers to help create magical math moments
+        <section class="s1">
+            <h1 id="a" class="hid">Nachalo</h1>
+            <h2 class="hid"></h2>
+            <p class="clas">Volunteers</p>
+            <p class="insp">Make magical math moments in your community.</p>
+            <p class="p_main">Mathopolis relies on volunteers to help create magical math moments
                 for kids. We have a number of ways to get involved, from playing math puzzles in a virtual classroom to
-                hosting your own festival. </p>
+                hosting your own festival</p>
             <img src="/pic/nachalo.png" alt="DropMenu" width="375" height="305">
         </section>
-        <section style="background-color: #FF6D8D;">
-            <h2>Testimonials</h2>
-            <p><b>Testimonials</b></p>
-
-            <blockquote style="width:308px; height:84px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-                quod!</blockquote>
-            <p>- Mouse C. <br>Festival volunteer</p>
-            <blockquote style="width:308px; height:84px;">Lorem ipsum dolor sit amet consectetur.</blockquote>
-            <p>- Ricardo M. <br>Festival volunteer</p>
-            <blockquote style="width:308px; height:84px;">I am a biochemist, but I loved helping students explore a
-                logic puzzle about a pirate captain and crew (complete with pirate hats).</blockquote>
-            <p>- David H. <br>Festival volunteer</p>
+        <section class="s2">
+            <h2 class="hid">Testimonials</h2>
+            <p class="he2">Testimonials</h2>
             <div>
+                <blockquote class="otz">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
+                    quod!</blockquote>
+                <p class="p_main mid">- Mouse C. <br>Festival volunteer</p>
+                <blockquote class="otz">Lorem ipsum dolor sit amet consectetur.</blockquote>
+                <p class="p_main mid">- Ricardo M. <br>Festival volunteer</p>
+                <blockquote class="otz">I am a biochemist, but I loved helping students explore a
+                    logic puzzle about a pirate captain and crew (complete with pirate hats).</blockquote>
+                <p class="p_main mid">- David H. <br>Festival volunteer</p>
+            </div>
+            <div class="r_btn">
                 <input type="radio" name="texts" id="r1" value="r1"> <label for="r1">r1</label>
                 <input type="radio" name="texts" id="r2" value="r2"> <label for="r2">r2</label>
                 <input type="radio" name="texts" id="r3" value="r3" checked> <label for="r3">r3</label>
             </div>
         </section>
-        <section>
-            <h2 id="b">Lead an activity</h2>
+        <section class="s3">
+            <h2 id="b" class="hid">Lead an activity</h2>
             <img src="/pic/nardy.png" alt="nardy" width="375" height="375">
-            <p><b>Lead an activity</b></p>
-            <p style="width: 345px; height: 84px;">Play a puzzle with kids at a virtual math circle or in-person
+            <p class="big_txt">Lead an activity</p>
+            <p class="p_main mrg30">Play a puzzle with kids at a virtual math circle or in-person
                 festival.
                 Volunteers lead our puzzles by encouraging independent exploration and asking strategic questions
                 to help with deeper thinking.</p>
-            <div style="margin-bottom: 50px;"></div>
-            <button style="border-color: rgb(238, 229, 229) rgb(209, 209, 209) rgb(186, 186, 186);
-            background-color: #6A19F5; width: 345px; height: 50px;"><b>
-                    ATTEND A WORKSHOP</b>
+            <button class="m_btn">ATTEND A WORKSHOP
             </button>
 
         </section>
-        <section style="background-color: #2580C1;">
-            <h2 id="c">Run a classroom visit</h2>
+        <section class="s4">
+            <h2 id="c" class="hid">Run a classroom visit</h2>
             <img src="/pic/piles_game.png" alt="game" width="375" height="263">
-            <p><b>Run a classroom visit</b></p>
-            <p style="width: 345px; height: 245px;">Lead virtual classroom visits in your neighborhood elementary or
+            <p class="big_txt wh">Run a classroom visit</p>
+            <p class="p_main wh">Lead virtual classroom visits in your neighborhood elementary or
                 middle school.
                 We train volunteers (including high school and college students) on how to manage this
                 virtual outreach activity. The only thing you need to bring is an open mind and the
                 desire to bring fun math into a kid's life.</p>
-            <div style="margin-bottom: 50px;"></div>
+            <div class="mrg50"></div>
         </section>
-        <section>
-            <h2 id="d">Host a festival</h2>
+        <section class="s5">
+            <h2 id="d" class="hid">Host a festival</h2>
             <img src="/pic/fest.png" width="375" alt="festival" height="375">
-            <p><b>Host a festival</b></p>
-            <p style="width: 345px; height: 126px;">A math festival is a one-time event where children gather and
+            <p class="big_txt">Host a festival</p>
+            <p class="p_main">A math festival is a one-time event where children gather and
                 explore math through puzzles.
                 Our festivals are hosted by volunteers who want to connect the children in their
                 community with a joyful math experience. We have all the resources you need to host a festival. </p>
-            <div style="margin-bottom: 50px;"></div>
-            <button style="border-color: rgb(238, 229, 229) rgb(209, 209, 209) rgb(186, 186, 186);
-            background-color: #6A19F5; width: 345px; height: 50px;"><b>
-                    LEARN MORE</b>
+            <div class="mrg50"></div>
+            <button class="m_btn">LEARN MORE
+                <!-- <p class="in_btn">LEARN MORE</p> -->
             </button>
         </section>
     </main>
     <footer>
-        <div style="background-color: #FFF2D6; height:901px;">
-            <h2>Links and contacts</h2>
+        <div class="ft">
+            <h2 class="hid">Links and contacts</h2>
             <img src="/pic/logo_big.png" width="345" alt="logo" height="172">
-            <p style="margin-bottom: 25px; width: 275px; height: 100px;">
+            <p class="botm">
                 <b>We're a fiscally-sponsored project of a 501(c)3, Social and Environmental Entrepreneurs.</b>
             </p>
-            <div>
-                <ul style="display: inline-block;">
+            <div class="links">
+                <ul>
                     <li><a href="#">STUDENTS</a></li>
                     <li><a href="#">PARENTS</a></li>
                     <li><a href="#">TEACHERS</a></li>
                     <li><a href="#">VOLUNTEERS</a></li>
                     <li><a href="#">EVENTS</a></li>
                 </ul>
-                <ul style="display: inline-block;">
+                <ul>
                     <li><a href="#">PUZZLES</a></li>
                     <li><a href="#">ABOUT</a></li>
                     <li><a href="#">NEWS</a></li>
@@ -121,22 +118,17 @@
                     <li><a href="#">DONATE</a></li>
                 </ul>
             </div>
-            <p>Follow us.</p>
-            <div style="display: inline-block; width: 350px;">
-                <a href="#"><img src="/pic/tw.png" alt="" width="60" height="60"></a>
-                <a href="#"><img src="/pic/li.png" alt="" width="60" height="60"></a>
-                <a href="#"><img src="/pic/in.png" alt="" width="60" height="60"></a>
-                <a href="#"><img src="/pic/fb.png" alt="" width="60" height="60"></a>
-                <a href="#"><img src="/pic/yt.png" alt="" width="60" height="60"></a>
+            <p class="end">Follow us:</p>
+            <div>
+                <a href="#"><img src="/pic/tw.png" alt="tweeter" width="60" height="60"></a>
+                <a href="#"><img src="/pic/li.png" alt="linkedin" width="60" height="60"></a>
+                <a href="#"><img src="/pic/in.png" alt="instagram" width="60" height="60"></a>
+                <a href="#"><img src="/pic/fb.png" alt="facebook" width="60" height="60"></a>
+                <a href="#"><img src="/pic/yt.png" alt="youtube" width="60" height="60"></a>
             </div>
             <br>
-            <button style="border-color: rgb(238, 229, 229) rgb(209, 209, 209) rgb(186, 186, 186);
-            background-color: #6A19F5; width: 345px; height: 50px;"><b>
-                    SUPPORT OUR CAUSE
-                </b>
-            </button>
-            <p><cite> C 2007-2022 Mathpolis</cite></p>
-
+            <button class="m_btn">SUPPORT OUR CAUSE</button>
+            <p><cite> &copy; 2007-2022 Mathpolis</cite></p>
         </div>
     </footer>
 </body>
