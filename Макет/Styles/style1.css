@@ -23,7 +23,7 @@ body{
 }
 
 .hd{
-    width:345px;
+    width:auto;
     display:inline-f;
 }
 
@@ -36,18 +36,17 @@ body{
 }
 
 .clas{
-    width: 345px;
-    left: 15px;
+    width: auto;
+    margin-left: 15px;
     font-family: 'Work Sans';
     font-style: normal;
-    font-weight: 400;
-    font-size: 35px;
-    line-height: 41px;
+    font-weight: 500;
+    font-size: 3.5rem;
+    line-height: 4.1rem;
     text-align: center;
     letter-spacing: 0.05em;
     color:var(--main-text);
-    height: 41px;
-    top: 140px;
+    min-height: 41px;
     text-transform: uppercase;
 }
 
@@ -57,7 +56,7 @@ body{
     font-size: 35px;
     line-height: 41px;
     text-align: center;
-    width: 345px;
+    width: auto;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin:5px;
@@ -67,7 +66,8 @@ body{
     font-size: 28.6px;
     font-weight: 500;
     line-height: 37.2px;
-    width: 345px;
+    width: auto;
+    margin-left:15px;
 }
 
 blockquote{
@@ -82,9 +82,11 @@ blockquote{
     font-size: 14px;
     line-height: 150%;
     color:var(--main-text);
-    width: 345px;
+    width: auto;
     height: 105px;
     color: var(--main-text);
+    margin-left:15px;
+    padding-right: 10px;
 }
 
 .mid{
@@ -96,7 +98,7 @@ blockquote{
 .r_btn{
     display:inline-flex;
     justify-content: center;
-    width:345px;
+    width:auto;
 }
 
 .menu{
@@ -138,7 +140,7 @@ section{
 .m_btn{
     border-color: var(--btn_1) var(--btn_2) var(--btn_3);
     background-color: var(--btn-colour); 
-    width: 345px; 
+    width: auto; 
     height: 50px;
     font-family: 'Work Sans';
     font-style: normal;
@@ -149,6 +151,7 @@ section{
     letter-spacing: 0.05em;
     color: white;
     border-radius: 8px;
+    margin-left:15px;
 }
 
 .otz{
@@ -185,7 +188,7 @@ section{
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: var(--main-text);
-    width: 345px;
+    width: auto;
     text-align: center;
 }
 
@@ -202,19 +205,23 @@ section{
 }
 
 .end{
-    width:345px;
+    width:auto;
     text-align: center;
 }
 
 .botm{
+    font-family: 'Work Sans';
+    font-style: normal;
     margin-bottom: 25px; 
+    margin-left:15px;
     width: 250px; 
     height: 50px;
+    font-weight: 600;;
 }
 
 .links{
     display:inline-flex;
-    width:345px;
+    width:auto;
 }
 
 
