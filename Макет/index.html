@@ -11,22 +11,19 @@
 </head>
 
 <body>
-    <header>
-        <!-- <div style="width:375px ; height:65px"> -->
-        <div class="hd"> <a href="#"><img src="/pic/mathpolis_logo.png" alt="" width="90" height="50"></a>
-            <button class="menu">
-                <img src="/pic/tree.png" alt="DropMenu" width="30" height="30">
-            </button>
+    <header style="height: 65px;">
+        <div class="hd"> 
+            <a href="#" class="mini"><img src="/pic/mathpolis_logo.png" alt="mathopolis logo" width="113.5" class="drop" height="35">
+            </a>
+            <select id="slct" title="select" disabled>
+                <option value="Pzl"><a href="#">puzzles</a></option>
+                <option value="Get_Inv"><a href="#">get involved</a></option>
+                <option value="Eve"><a href="#">events</a></option>
+                <option value="Abt"><a href="#">about</a></option>
+                <option value="Str"><a href="#">store</a></option>
+            </select>
+            <img src="/pic/tree.png" alt="DropMenu" width="30" height="30" class="sel">
         </div>
-
-        <!-- <nav>
-            <ul>
-                <li><a href="#a" class="internal">Lorem</a></li>
-                <li><a href="#b" class="internal">Nihil</a></li>
-                <li><a href="#c" class="internal">Deleniti</a></li>
-                <li><a href="#d" class="internal">Obcaecati</a></li>
-            </ul>
-        </nav> -->
     </header>
     <main>
         <section class="s1">
@@ -37,20 +34,21 @@
             <p class="p_main">Mathopolis relies on volunteers to help create magical math moments
                 for kids. We have a number of ways to get involved, from playing math puzzles in a virtual classroom to
                 hosting your own festival</p>
-            <img src="/pic/nachalo.png" alt="DropMenu" width="375" height="305">
+            <img src="/pic/nachalo.png" alt="DropMenu" width="365" height="305"> 
         </section>
         <section class="s2">
             <h2 class="hid">Testimonials</h2>
             <p class="he2">Testimonials</p>
-            <div>
-                <blockquote class="otz">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-                    quod!</blockquote>
-                <p class="p_main mid">- Mouse C. <br>Festival volunteer</p>
-                <blockquote class="otz">Lorem ipsum dolor sit amet consectetur.</blockquote>
-                <p class="p_main mid">- Ricardo M. <br>Festival volunteer</p>
+            <div class="quotes">
+                <blockquote class="otz hid">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, quod!</blockquote>
+                <blockquote class="otz hid">Lorem ipsum dolor sit amet consectetur.</blockquote>
                 <blockquote class="otz">I am a biochemist, but I loved helping students explore a
                     logic puzzle about a pirate captain and crew (complete with pirate hats).</blockquote>
-                <p class="p_main mid">- David H. <br>Festival volunteer</p>
+            </div>
+            <div class="quotes">
+                <p class="mid hid">- Mouse C. <br>Festival volunteer</p>
+                <p class="mid hid">- Ricardo M. <br>Festival volunteer</p>
+                <p class="mid">- David H. <br>Festival volunteer</p>
             </div>
             <div class="r_btn">
                 <input type="radio" name="texts" id="r1" value="r1"> <label for="r1">r1</label>
@@ -60,66 +58,63 @@
         </section>
         <section class="s3">
             <h2 id="b" class="hid">Lead an activity</h2>
-            <img src="/pic/nardy.png" alt="nardy" width="375" height="375">
+            <img src="/pic/nardy.png" alt="nardy" width="365" height="375" style="margin-top:50px;">
             <p class="big_txt">Lead an activity</p>
-            <p class="p_main mrg30">Play a puzzle with kids at a virtual math circle or in-person
+            <p class="p_main">Play a puzzle with kids at a virtual math circle or in-person
                 festival.
                 Volunteers lead our puzzles by encouraging independent exploration and asking strategic questions
                 to help with deeper thinking.</p>
             <button class="m_btn">ATTEND A WORKSHOP
             </button>
-
         </section>
         <section class="s4">
             <h2 id="c" class="hid">Run a classroom visit</h2>
-            <img src="/pic/piles_game.png" alt="game" width="375" height="263">
+            <img src="/pic/piles_game.png" alt="game" width="365" height="263" style="margin-top:100px;">
             <p class="big_txt wh">Run a classroom visit</p>
             <p class="p_main wh">Lead virtual classroom visits in your neighborhood elementary or
                 middle school.
                 We train volunteers (including high school and college students) on how to manage this
                 virtual outreach activity. The only thing you need to bring is an open mind and the
                 desire to bring fun math into a kid's life.</p>
-            <div class="mrg50"></div>
         </section>
         <section class="s5">
             <h2 id="d" class="hid">Host a festival</h2>
-            <img src="/pic/fest.png" width="375" alt="festival" height="375">
+            <img src="/pic/fest.png" width="365" alt="festival" height="375" style="margin-top:75px;">
             <p class="big_txt">Host a festival</p>
             <p class="p_main">A math festival is a one-time event where children gather and
                 explore math through puzzles.
                 Our festivals are hosted by volunteers who want to connect the children in their
                 community with a joyful math experience. We have all the resources you need to host a festival. </p>
-            <div class="mrg50"></div>
             <button class="m_btn">LEARN MORE
                 <!-- <p class="in_btn">LEARN MORE</p> -->
             </button>
         </section>
     </main>
-    <footer>
-        <div class="ft">
+    <footer class="fin">
+        <div>
             <h2 class="hid">Links and contacts</h2>
-            <img src="/pic/logo_big.png" width="345" alt="logo" height="172">
+            <img src="/pic/logo_big.png" width="345" alt="logo" height="172" class="mrg30">
             <p class="botm">
                 We're a fiscally-sponsored project of a 501(c)3, Social and Environmental Entrepreneurs.
             </p>
             <div class="links">
                 <ul>
-                    <li><a href="#">STUDENTS</a></li>
-                    <li><a href="#">PARENTS</a></li>
-                    <li><a href="#">TEACHERS</a></li>
-                    <li><a href="#">VOLUNTEERS</a></li>
-                    <li><a href="#">EVENTS</a></li>
+                    <li class="sp35"><a href="#">STUDENTS</a></li>
+                    <li class="sp35"><a href="#">PARENTS</a></li>
+                    <li class="sp35"><a href="#">TEACHERS</a></li>
+                    <li class="sp35"><a href="#">VOLUNTEERS</a></li>
+                    <li class="sp35"><a href="#">EVENTS</a></li>
                 </ul>
                 <ul>
-                    <li><a href="#">PUZZLES</a></li>
-                    <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">NEWS</a></li>
-                    <li><a href="#">STORE</a></li>
-                    <li><a href="#">DONATE</a></li>
+                    <li class="sp35"><a href="#">PUZZLES</a></li>
+                    <li class="sp35"><a href="#">ABOUT</a></li>
+                    <li class="sp35"><a href="#">NEWS</a></li>
+                    <li class="sp35"><a href="#">STORE</a></li>
+                    <li class="sp35"><a href="#">DONATE</a></li>
                 </ul>
             </div>
             <p class="end">Follow us:</p>
-            <div>
+            <div class="underlink">
                 <a href="#"><img src="/pic/tw.png" alt="tweeter" width="60" height="60"></a>
                 <a href="#"><img src="/pic/li.png" alt="linkedin" width="60" height="60"></a>
                 <a href="#"><img src="/pic/in.png" alt="instagram" width="60" height="60"></a>
