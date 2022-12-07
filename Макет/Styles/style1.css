@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap');
 
 
+
 :root{
     box-sizing: border-box;
     font-size: 62.5%;
@@ -27,7 +28,7 @@ body{
 }
 
 .wrapper {
-    max-width: 1170px;
+    max-width: 256rem;
     margin-left: auto;
     margin-right: auto;
     padding-left: 16px;
@@ -163,7 +164,7 @@ body{
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin:5px;
-    margin-top:150px;
+    margin-top:100px;
 }
 
 blockquote{
@@ -187,12 +188,12 @@ blockquote{
 } */
 
 .otz{
-    min-height: 10px;
     max-height: 100px;
+    max-width:500px;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 1.6rem;
     line-height: 21px;
     display: flex;
     align-items: center;
@@ -203,7 +204,6 @@ blockquote{
     font-family: 'Work Sans', sans-serif;
     font-style: normal;
     text-align: center;
-    margin-bottom: 0px;
     font-weight: 500;
     min-height: 10px;
     margin: 5px;
@@ -224,13 +224,18 @@ blockquote{
 
 
 section{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding:5px;
     /* width: 37.5rem; */
 }
 
 .s1{
     background-color: var(--s1);
-    display: block;
+    /* display: flex; */
+    /* justify-content: center; */
     height: 815px;
     margin: 0px;
     padding: 5px;
@@ -270,7 +275,9 @@ section{
     height:901px;
     margin: 0px;
     padding: 5px;
-    width:375px;
+    display: flex;
+    justify-content: center;
+    /* width:375px; */
 }
 
 .m_btn{
@@ -351,9 +358,21 @@ section{
 }
 
 .underlink{
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
+    /* display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr; */
+    /* max-width: 36.5rem; */
+    max-width: 85vw;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    /* gap:36px; */
+}
+
+.btm_link{
+    width:6rem;
+    height:6rem;
 }
 
 a:link {
@@ -374,3 +393,22 @@ a:active {
 cite{
     opacity: 0.3;
 }
+
+@media (min-width: 576px) {
+    p{
+        color: crimson;
+    }
+}
+
+/*Устройства Medium (планшеты, 768 пикселей и выше) */
+@media (min-width: 768px) {
+}
+
+/*Устройства Large (настольные компьютеры, 992 пикселей и выше) */
+@media (min-width: 992px) {}
+
+/*Устройства X-Large (большие настольные компьютеры, 1200 пикселей и выше) */
+@media (min-width: 1200px) {}
+
+/*Устройства XX-Large (большие настольные компьютеры, 1400 пикселей и выше) */
+@media (min-width: 1400px) {}
