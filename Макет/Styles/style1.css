@@ -243,6 +243,7 @@ blockquote{
     justify-content: center;
     width:345px;
     margin-top: 15px;
+    gap:1rem;   
 }
 
 .menu{
@@ -525,7 +526,6 @@ cite{
     100% { opacity: 0; }
 }
 
-/*Мобилки*/
 @media (min-width: 576px) {
     :root{
         font-size: 65%;
@@ -545,7 +545,6 @@ cite{
     }
 }
 
-/*Устройства Medium (планшеты, 800 пикселей и выше) */
 @media (min-width: 800px) {
     :root{
         font-size: 67.7%;
@@ -565,7 +564,6 @@ cite{
     }
 }
 
-/*Устройства Large (настольные компьютеры, 960 пикселей и выше) */
 @media (min-width: 960px) {
     :root{
         font-size: 72.5%;
@@ -585,7 +583,6 @@ cite{
     }
 }
 
-/*Устройства X-Large (большие настольные компьютеры, 1280 пикселей и выше) */
 @media (min-width: 1280px) {
     :root{
         box-sizing: border-box;
@@ -698,8 +695,8 @@ cite{
     }
 
     .s4 img{
-        width:860px;
-        height:600px;
+        width:660px;
+        height:540px;
     }
 
     .s4 p{
@@ -714,7 +711,7 @@ cite{
     }
 
     .s4 .wrapper{
-        align-items: flex-start;
+        align-items: center;
         padding-left: 1.5rem;
     }
 
@@ -734,6 +731,7 @@ cite{
         text-transform: uppercase;
         color: var(--main-text);
         text-align: center;
+        margin-left: 10vw;
     }
 
     .underdiv{
@@ -761,9 +759,7 @@ cite{
 
 }
 
-/*Устройства XX-Large (большие настольные компьютеры, 1920 пикселей и выше) */
 @media (min-width: 1920px) {
-    /* desktop version */
     :root{
         box-sizing: border-box;
         font-size: 85%;
