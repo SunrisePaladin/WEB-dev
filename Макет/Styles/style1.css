@@ -28,6 +28,9 @@ body{
     /* background: linear-gradient(180deg, rgba(255,255,255,1) 5%, rgba(116,197,255,1) 19%, rgba(255,109,141,1) 33%, rgba(255,255,255,1) 47%, rgba(9,9,121,1) 61%, rgba(255,255,255,1) 75%, rgba(255,242,214,1) 91%); */
 }
 
+header{
+    min-height:75px;    
+}
 
 p{
     min-width: 345px;
@@ -73,9 +76,9 @@ p{
 }
 
 .drop{
-    /* border-radius: 3px; */
-    /* border: 1px solid var(--main-text); */
-    margin-left: 1.5rem;
+    max-height: 55px;
+    object-fit: contain;
+    object-position: top center;
 }
 
 .top{
