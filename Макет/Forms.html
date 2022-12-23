@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/Styles/style1.css">
     <link rel="stylesheet" href="/Styles/style2.css">
     <link rel="stylesheet" href="/Styles/normalize.css">
+    <link rel="icon" href="/pic/Logos/Zerg.ico">
 </head>
 
 <body>
@@ -44,28 +45,42 @@
     </header>
     <main>
         <section class="s1">
-            <form id="name">
-                <label for="name" class="form_head">Forms </label>
-                <div class="formed">
-                    <label for="i1" class="form_head">Enter your name: </label>
-                    <input id="i1" type="text" class="form_txt">
-                    <label for="i2" class="form_head">Enter your birthday: </label>
-                    <input id="i2" type="date">
-                    <label for="i3" class="form_head">Enter your gender: </label>
-                    <div class="checkboxes" id="i3">
-                        <input type="radio" name="gender" id="r1">
-                        <p class="form_txt">Male</p>
-                        <input type="radio" name="gender" id="r2">
-                        <p class="form_txt">Female</p>
+            <h1 class="sr-only">Empty</h1>
+            <form id="name" name="contact" method="POST" data-netlify="true">
+                <fieldset>
+                    <legend>Personal data</legend>
+                    <!-- <label for="name" class="form_head">Forms </label> -->
+                    <div class="formed">
+                        <p><label for="i1" class="form_head">Enter your name: </label></p>
+                        <input id="i1" type="text" class="form_txt" placeholder="Enter your name here" required>
+
+                        <p><label for="i2" class="form_head">Enter your birthday: </label></p>
+                        <input id="i2" type="date" required>
+
+                        <p><label for="i3" class="form_head">Enter your gender: </label></p>
+                        <div class="checkboxes" id="i3">
+                            <input type="radio" name="gender" id="r1">
+                            <p class="form_txt">Male</p>
+                            <input type="radio" name="gender" id="r2">
+                            <p class="form_txt">Female</p>
+                        </div>
                     </div>
-                    <label for="i4" class="form_head">Enter your email: </label>
-                    <input id="i4" type="email">
-                    <label for="i5" class="form_head">Enter your phone number: </label>
-                    <input id="i5" type="tel" class="form_txt">
-                    <label for="i6" class="form_head">Enter your interval: </label>
-                    <input id="i6" type="range" class="form_txt">
-                </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Preferences</legend>
+                    <div class="formed">
+                        <p><label for="i4" class="form_head">Enter your email: </label></p>
+                        <input id="i4" type="email" placeholder="Enter your email here">
+
+                        <p><label for="i5" class="form_head">Enter your phone number: </label></p>
+                        <input minLength="11" maxLength="11" id="i5" type="tel" class="form_txt" placeholder="Enter your phone here" required>
+
+                        <p><label for="i6" class="form_head">Enter your interval: <br> 8-11, 11-14, 14-17, 17-20</label></p>
+                        <input id="i6" type="range" class="form_txt" min="0" max="3">
+                    </div>
+                </fieldset>
             </form>
+            <button type="submit" class="m_btn">Send</button>
         </section>
     </main>
     <footer class="fin">

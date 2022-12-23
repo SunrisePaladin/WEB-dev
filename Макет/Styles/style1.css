@@ -227,7 +227,7 @@ blockquote{
 }
 
 .quotes{
-    min-width:345px;
+    /* min-width:345px; */
     height: 120px;
     display: flex;
     flex-direction: column;
@@ -254,7 +254,7 @@ blockquote{
 
 .otz{
     max-height: 100px;
-    max-width:500px;
+    /* max-width:500px; */
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
@@ -765,6 +765,16 @@ cite{
         margin-left:1rem;
     }
 
+    .s2 .turned{
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 5px;
+        min-width: 1000px;
+        max-width: 90vw;
+    }
+
     .s3 .turned{
         display:flex;
         flex-direction: row;
@@ -824,7 +834,7 @@ cite{
     }
 
     .s4 p{
-        max-width: 350px;
+        max-width: 550px;
     }
 
     section .wrapper{
@@ -882,7 +892,7 @@ cite{
         font-size: 85%;
     }
     body p{
-        min-width: 775px;
+        min-width: 175px;
     }
     .fin{
         padding-bottom: 0px;

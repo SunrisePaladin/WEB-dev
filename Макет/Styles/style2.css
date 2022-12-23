@@ -31,7 +31,7 @@ form{
     font-size: 25px;
     font-weight: 500;
     text-align: center;
-    margin: 5px;
+    margin: 1rem;
 }
 
 .form_txt{
@@ -39,8 +39,8 @@ form{
     font-size: 20px;
     font-weight: 500;
     text-align: center;
-    max-width: 300px;
-    margin: 5px;
+    /* max-width: 300px; */
+    margin: 1rem;
     height:35px;
 }
 
@@ -55,7 +55,17 @@ form{
     color:springgreen;
 }
 
+.formed p{
+    margin: 1rem;
+}
+
 input{
     max-width: 30vw;
+}
+
+input::placeholder{
+    font-weight: bold;
+    opacity: 0.5;
+    color: red;
 }
 
