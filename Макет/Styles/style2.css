@@ -8,16 +8,16 @@ body  footer {
     top: 100vh;
   }
 
-.s1{
-    height: 100vh;
-    justify-content: flex-start;
-}
-
 form{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: inherit;
     gap:20px
+}
+
+fieldset{
+    width:100%;
 }
 
 .formed{
@@ -53,6 +53,10 @@ form{
     min-width:50px;
     max-width: 100px;
     color:springgreen;
+}
+
+.s1{
+    min-height:1500px;
 }
 
 .formed p{
