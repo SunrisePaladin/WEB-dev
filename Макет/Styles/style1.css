@@ -18,6 +18,7 @@
     --s2:#FF6D8D;
     --s4:#2580C1;
     --my_colour:#FA36A0;
+    --top_btn:#F9523B;
 }
 
 body{
@@ -29,10 +30,15 @@ body{
 }
 
 header{
-    min-height:75px;    
+    min-height:75px;
+    max-width: 97vw;
 }
 
-p{
+header{
+    min-width: 50px;
+}
+
+main p{
     min-width: 345px;
     max-width: 800px;
 }
@@ -62,12 +68,27 @@ p{
     max-width: 80vw;
     min-height:6.5rem;
     display:flex;
-    flex-direction: row;    
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;    
     background-color: var(--wh);
 }
 
+.menu_top{
+    /* position: absolute; */
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    /* clip-path: inset(100%); */
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
 .mini{
-    height: 65px;
+    height: 75px;
     width:auto;
     margin-top:15px;
     margin-bottom:15px;
@@ -76,7 +97,7 @@ p{
 }
 
 .drop{
-    max-height: 55px;
+    height: 55px;
     object-fit: contain;
     object-position: top center;
 }
@@ -96,9 +117,15 @@ p{
     bottom: 30%; */
     z-index: 3;
     height:40px;
+    min-width: 100px;
     /* margin-top:10px; */
     opacity: 25%;
+    border-radius: 1rem;
 }
+
+/* option{
+    text-transform: uppercase;
+} */
 
 .sel{
     z-index: 3;
@@ -169,12 +196,21 @@ p{
 }
 
 .btn2{
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     justify-content:space-between;
-    align-items:baseline;
-    gap:50px;
-    width:90vw;
+    align-items:center;
+    width:auto;
+    /* max-width: 95vw; */
+}
+
+.switch{
+    object-fit: cover;
+    object-position: top left;
+    border-radius: 20px;
+    margin-left: -8px;
+    margin-top: -4px;
 }
 
 .btn2 button{
@@ -219,7 +255,6 @@ blockquote{
 .otz{
     max-height: 100px;
     max-width:500px;
-    width:auto;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
@@ -262,6 +297,7 @@ section{
     flex-direction: column;
     align-items: center;
     padding:5px;
+    min-width: 260px;
     width: auto;
 }
 
@@ -308,17 +344,10 @@ section{
     width:auto;
 }
 
-.underdiv{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
 .m_btn{
     border-color: var(--btn_1) var(--btn_2) var(--btn_3);
     background-color: var(--btn-colour); 
-    margin-top:50px;
+    margin-top:30px;
     margin-bottom: 15px;
     width: 345px; 
     height: 50px;
@@ -332,6 +361,15 @@ section{
     color: var(--wh);
     border-radius: 8px;
     box-shadow: 14px 12px 9px -5px rgba(40, 135, 208, 0.44) inset;
+}
+
+.top>.m_btn{
+    visibility: collapse;
+    font-size: 1.5rem;
+    margin:0px;
+    height: 0px;
+    width: 0px;
+    size: 0rem;
 }
 
 .p1{
@@ -368,7 +406,12 @@ section{
 .turned>img{
     width:365px;
     height:263px;
-    margin-top:100px;
+    margin-top:50px;
+}
+
+.s1 img{
+    width:355px;
+    height:300px;
 }
 
 .s2 .wrapper{
@@ -377,6 +420,7 @@ section{
     justify-content: center;
     align-items: center;
 }
+
 
 .s4 button{
     visibility: collapse;
@@ -388,8 +432,8 @@ section{
 }
 
 .s3 .turned img{
-    width:365px;
-    height:375px;
+    width:355px;
+    height:365px;
 }
 
 .s3 .wrapper{
@@ -404,7 +448,7 @@ section{
 }
 
 .s4 img{
-    width:375px;
+    width:355px;
     height:263px;
 }
 
@@ -416,8 +460,8 @@ section{
 }
 
 .s5 img{
-    width:365px; 
-    height:375px;
+    width:355px; 
+    height:365px;
 }
 
 .end{
@@ -436,7 +480,8 @@ section{
     font-style: normal;
     text-align: center;
     margin-bottom: 5rem; 
-    margin-left:15px;
+    margin-left:5px;
+    margin-right:15px;
     width: 250px; 
     height: 5rem;
     font-weight: 600;
@@ -453,6 +498,7 @@ section{
 
 .underlink{
     max-width: 85vw;
+    width:40rem;
     display:flex;
     flex-direction: row;
     align-items: center;
@@ -460,11 +506,25 @@ section{
     /* gap:36px; */
 }
 
+#d1,#d3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .underdiv{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.df{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .btm_link{
@@ -594,11 +654,62 @@ cite{
     main p{
         min-width: 600px;
     }
+    .hd{
+        min-height:10rem;
+    }
     .top_div{
         display: flex;
         flex-direction: row;
         justify-content: center;
     }
+    .menu_top{
+        overflow: visible;
+        /* max-width: 55vw; */
+        display: flex;
+        /* gap:4rem; */
+        align-items: center;
+        justify-content: space-around;
+        /* grid-template-columns: 15% 20% 20% 20% 15%;
+        grid-template-rows: 100%; */
+        width:800px;
+        height:80px;
+        /* background-color: #6A19F5; */
+    }
+    .sel{
+        visibility: collapse;
+        width: 0rem;
+        height: 0rem;
+        margin:0;
+        overflow: hidden;
+    }
+
+    .top{
+        min-width: 100px;
+        min-height: 60px;
+        display: block;
+    }
+    
+    .top>.m_btn{
+        visibility: visible;
+        width:130px;
+        height: 50px;
+        background-color: var(--top_btn);
+    }
+
+    .menu_top p{
+        text-transform: uppercase;
+    }
+
+    .mini{
+        min-height:100px;
+        object-position: bottom center;
+    }
+    .mini>.drop{
+        width:200px;
+        height: 100px;
+        margin-left: 15px;
+    }
+
     .clas{
         margin:0px;
         margin-top:5px;
@@ -643,10 +754,15 @@ cite{
         border-color: var(--btn_1) var(--btn_2) var(--btn_3);
     }
 
+    .btn2{
+        gap:50px;
+    }
+
     .s3 img{
-        min-width:450px;
-        min-height:450px;
+        min-width:540px;
+        min-height:540px;
         object-fit: cover;
+        margin-left:1rem;
     }
 
     .s3 .turned{
@@ -696,10 +812,15 @@ cite{
         height: 50px;
         line-height: 21px;
     }
+    s4 button>a{
+        font:inherit;
+        color:inherit;
+    }
 
     .s4 img{
-        width:660px;
-        height:540px;
+        width:530px;
+        height:530px;
+        margin-right: 20px;
     }
 
     .s4 p{
@@ -748,13 +869,6 @@ cite{
         height:460px;
         padding-bottom: 0px;
     }
-
-    #d1,#d3{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
     cite{
         margin-top: 10px;
         opacity: 85%;
