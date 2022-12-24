@@ -75,9 +75,8 @@ input{
 input::placeholder{
     font-weight: bold;
     opacity: 0.5;
-    color: red;
+    color: purple;
 }
-
 
 
 button:focus{
@@ -88,6 +87,7 @@ button:focus{
 button:active{
     transform: rotate(45deg);
     scale:150%;
+    background-color: red;
 }
 
 button:hover{
@@ -99,3 +99,11 @@ button:hover{
     color: gold;
     background: red;
   }
+
+div{
+    transition-duration: 500ms ;
+}
+
+button{
+    transition-duration: 250ms ;
+}
