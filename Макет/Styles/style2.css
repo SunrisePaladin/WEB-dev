@@ -55,8 +55,8 @@ fieldset{
 }
 
 .checkboxes p{
-    min-width:50px;
-    max-width: 100px;
+    min-width:150px;
+    max-width: 300px;
     color:springgreen;
 }
 
