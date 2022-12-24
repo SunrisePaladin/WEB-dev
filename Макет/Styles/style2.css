@@ -102,8 +102,10 @@ button:hover{
 
 div{
     transition-duration: 500ms ;
+    transition-delay: 5s;
 }
 
 button{
     transition-duration: 250ms ;
+    
 }
