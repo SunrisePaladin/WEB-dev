@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap');
 
 html, body { height: 100%;}
+
+:focus{
+    font-family: 'Work Sans', sans-serif;
+}
 
 body  footer {
     position: sticky;
@@ -56,7 +61,7 @@ fieldset{
 }
 
 .s1{
-    min-height:1500px;
+    height: 1000px;
 }
 
 .formed p{
@@ -73,3 +78,24 @@ input::placeholder{
     color: red;
 }
 
+
+
+button:focus{
+    border-radius: 1.5rem;
+    font-size: larger;
+}
+
+button:active{
+    transform: rotate(45deg);
+    scale:150%;
+}
+
+button:hover{
+    text-decoration:dashed;
+    background-color: black;
+}
+
+::selection {
+    color: gold;
+    background: red;
+  }
