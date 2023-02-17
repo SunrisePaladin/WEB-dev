@@ -99,7 +99,7 @@ button:hover{
 ::selection {
     color: gold;
     background: red;
-  }
+}
 
 div{
     transition-duration: 500ms ;
