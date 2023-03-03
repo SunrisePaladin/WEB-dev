@@ -17,13 +17,15 @@ const button = document.getElementById("btn1");
 // body.style.backgroundColor = "green";
 
 function clickordie(){
-    console.log('click')
+    console.log("click")
 }
 
-div.onclick = clickordie;
+// div.onclick = clickordie;
 
 div.addEventListener("click", clickordie);
+div.removeEventListener("click", clickordie);
+
+
 form.addEventListener("click", clickordie);
 button.addEventListener("click", clickordie);
-
 // console.dir(body);
