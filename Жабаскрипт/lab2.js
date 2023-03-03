@@ -1,7 +1,7 @@
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is exclusive and the minimum is inclusive
+    return Math.floor(Math.random() * (max - min) + min); // The maximum is inclusive and the minimum is inclusive too
 }
 
 function convertSpeed(speed, mode) {
@@ -52,7 +52,8 @@ let n = +prompt("Введите длину массива: ");
 let mas = [];
 for (let i = 0; i < n; i++){
     // mas.push(+prompt("Введите число в массив: "));
-    mas.push(getRandomInt(0, 10));
+    mas.push(getRandomInt(0, 100));
 }
 let r = +prompt("Введите кол-во элементов в новом массиве: ");
-console.log(sampleArray(mas, r))
+console.log(sampleArray(mas, r));
+console.log(Math['atan']);
