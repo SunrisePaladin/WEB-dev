@@ -10,22 +10,66 @@ const body = document.body;
 const div = document.getElementById("div1");
 const form = document.getElementById("form1");
 const button = document.getElementById("btn1");
+const input = document.querySelector("input");
 
 // button.textContent = `<script defer src="кража_данных.js"></script>`;
 // button.innerHTML = `<script defer src="кража_данных.js"></script>`; //можно вставить пользовательский ввод)))) ПОдходит для drop table
 
 // body.style.backgroundColor = "green";
+// console.dir(body);
 
-function clickordie(){
-    console.log("click")
-}
+div.classList.add("opened");
+div.classList.remove("opened");
+div.classList.toggle("opened"); //есть - исчезает, нет - добавляет
+
+// function clickordie(event){
+//     // event.stopPropagation();
+//     console.log(`Клик на ${event.target} сейчас мы тут - ${event.currentTarget}`);
+// }
 
 // div.onclick = clickordie;
 
-div.addEventListener("click", clickordie);
-div.removeEventListener("click", clickordie);
+form.addEventListener("submit", (event)=>{
+    // console.log(event);
+    email = input.value;
+    password = "Пароль";
+    console.table({email, password});
+    event.preventDefault();
+});
 
+// input.addEventListener("focus", ()=> {
+//     // console.log("focus");
+// })
 
-form.addEventListener("click", clickordie);
-button.addEventListener("click", clickordie);
-// console.dir(body);
+input.addEventListener("blur", ()=> {
+    // console.log("blur");
+    // error.classList.add("error");
+    // if (input.value !== '42'){
+    //     error.innerText = "error";
+    // }
+    // else{
+    //     error.innerText = "ok";
+    // }
+
+    if (input.validity.typeMismatch){
+        error.textContent = "Не почта";
+        input.serCustomValidity("не моя почта");
+    }
+    // if (input.validity.tooShort){
+    //     error.textContent = "Мало";
+    // }
+    else{
+        error.textContent = "";
+        input.setCustomValidity("");
+    }
+    // console.log(input.validity);
+});
+
+button.addEventListener("click", () => {
+
+});
+
+// div.addEventListener("click", clickordie);
+// //div.removeEventListener("click", clickordie);
+// form.addEventListener("click", clickordie);
+// button.addEventListener("click", clickordie);

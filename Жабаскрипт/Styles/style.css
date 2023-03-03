@@ -9,3 +9,8 @@ body {
     background-position: center;
     background-size: 5%;
 }
+
+
+.opened{
+    display: block;
+}
