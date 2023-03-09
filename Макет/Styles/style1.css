@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 
 :root{
@@ -19,6 +20,10 @@
     --s4:#2580C1;
     --my_colour:#FA36A0;
     --top_btn:#F9523B;
+}
+
+* {
+	box-sizing: border-box;
 }
 
 body{
@@ -42,6 +47,7 @@ header{
     position: fixed;
     left: 0;
     top: 0; 
+    z-index: -1;
     display: flex;
     justify-content: center; 
     align-items: center;
@@ -49,20 +55,46 @@ header{
     height: 100vh; 
     padding: 30px;
     background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none; 
+    opacity: 0;
+    transition: opacity .3s, background-color .5s;
 }
 
 .modal-content {
     overflow: scroll;
     width: 100%; 
     height: 100%; 
-    max-width: 500px; 
-    max-height: 400px; 
-    background-color: #fff; 
+    max-width: 600px; 
+    max-height: 500px; 
+    padding: 0px 20px;
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+.close {
+    position:relative;
+    left: 97%;
+    top: 0%;
+    width: 30px;
+    height: 30px;
+}
+
+.is-open {
+	opacity: 1;
+	pointer-events: all;
+    z-index: 1;
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
 main p{
     min-width: 345px;
     max-width: 800px;
+}
+
+.formed{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .wrapper {
@@ -540,6 +572,24 @@ section{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
+}
+
+.form_head{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+    margin: 1rem;
+}
+
+.form_txt{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    margin: 1rem;
+    height:35px;
 }
 
 .df{
