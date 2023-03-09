@@ -14,32 +14,47 @@
     <div class="modal-container">
         <div class="modal-content">
             <button class="close">x</button>
-            <!-- <button class="modal-btn">Регистрация</button> -->
             <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, a delectus illo recusandae ipsam corrupti saepe culpa labore assumenda perspiciatis!</p> -->
-            <fieldset>
-                <legend>Personal data</legend>
-                <div class="formed">
-                    <p><label for="i1" class="form_head">Enter your name: </label></p>
-                    <input id="i1" type="email" class="form_txt" placeholder="email" name="Name" required>
-                    <p><label for="i2" class="form_head">Enter your password </label></p>
-                    <input id="i2" type="password" minLength="6" class="form_txt" name="date" placeholder="password" required>
-                </div>
-                <div class="underdiv">
-                    <button>Send</button>
-                    <button>Show</button>
-                </div>
-            </fieldset>
+            <!-- <form id="form1" name="register">
+                <fieldset>
+                    <legend>Personal data</legend>
+                    <div class="formed">
+                        <p><label for="i1" class="form_head">Enter your name: </label></p>
+                        <input id="i1" type="email" class="form_txt" placeholder="email" name="Name" required>
+                        <p><label for="i2" class="form_head">Enter your password </label></p>
+                        <input id="i2" type="password" minLength="6" class="form_txt" name="date" placeholder="password"
+                            required>
+                        <p id="error"></p>
+                    </div>
+                    <div class="underdiv">
+                        <button id="btn1" class="forms">Show</button>
+                        <button id="btn2" class="forms">Send</button>
+                    </div>
+                </fieldset>
+            </form> -->
         </div>
     </div>
     <header>
         <div class="hd">
-            <a href="Forms.html"  class="mini"><img src="pic/mathpolis_logo_old.png" alt="mathopolis logo"
+            <a href="Forms.html" class="mini"><img src="pic/mathpolis_logo_old.png" alt="mathopolis logo"
                     class="drop"></a>
             <div class="menu_top">
                 <p class="p_main_top">puzzles</p>
-                <select id="sel1" title="Get involved" class="sel_top"><option value="Get involved"><p>Get involved</p></option></select>
-                <select id="sel2" title="Events" class="sel_top"><option value="Events"><a href="#"><p>Events</p></option></select>
-                <select id="sel3" title="About" class="sel_top"><option value="About"><a href="#"><p>About</p></option></select>
+                <select id="sel1" title="Get involved" class="sel_top">
+                    <option value="Get involved">
+                        <p>Get involved</p>
+                    </option>
+                </select>
+                <select id="sel2" title="Events" class="sel_top">
+                    <option value="Events"><a href="#">
+                            <p>Events</p>
+                    </option>
+                </select>
+                <select id="sel3" title="About" class="sel_top">
+                    <option value="About"><a href="#">
+                            <p>About</p>
+                    </option>
+                </select>
                 <p class="p_main_top">store</p>
             </div>
             <div class="top">
@@ -47,14 +62,14 @@
                 <button data-trigger class="m_btn">Open modal</button>
                 <img src="/pic/lines.svg" alt="DropMenu" class="sel">
             </div>
-        </div>        
+        </div>
     </header>
     <main>
         <section class="s1">
             <div class="top_div">
                 <div class="wrapper">
                     <h1 id="a" class="sr-only">Nachalo</h1>
-                    <h2 class="sr-only" >Volunteers</h2>
+                    <h2 class="sr-only">Volunteers</h2>
                     <p class="clas">волонтирс</p>
                     <p class="clas"></p>
                     <p class="insp">Make magical math moments in your community.</p>
@@ -171,18 +186,22 @@
             <div class="df">
                 <p class="end">Follow us:</p>
                 <div class="underlink">
-                    <a href="https://www.twitter.com" class="btm_link"><img src="/pic/Logos/Group 152.svg" alt="twitter" width="60" height="60"></a>
-                    <a href="#" class="btm_link"><img src="/pic/Logos/Group 153.svg" alt="linkedin" width="60" height="60"></a>
-                    <a href="#" class="btm_link"><img src="/pic/Logos/Group 154.svg" alt="instagram" width="60" height="60"></a>
-                    <a href="#" class="btm_link"><img src="/pic/Logos/Group 155.svg" alt="facebook" width="60" height="60"></a>
-                    <a href="#" class="btm_link"><img src="/pic/Logos/Group 156.svg" alt="youtube" width="60" height="60"></a>
+                    <a href="https://www.twitter.com" class="btm_link"><img src="/pic/Logos/Group 152.svg" alt="twitter"
+                            width="60" height="60"></a>
+                    <a href="#" class="btm_link"><img src="/pic/Logos/Group 153.svg" alt="linkedin" width="60"
+                            height="60"></a>
+                    <a href="#" class="btm_link"><img src="/pic/Logos/Group 154.svg" alt="instagram" width="60"
+                            height="60"></a>
+                    <a href="#" class="btm_link"><img src="/pic/Logos/Group 155.svg" alt="facebook" width="60"
+                            height="60"></a>
+                    <a href="#" class="btm_link"><img src="/pic/Logos/Group 156.svg" alt="youtube" width="60"
+                            height="60"></a>
                 </div>
                 <button class="m_btn">SUPPORT OUR CAUSE</button>
             </div>
         </div>
         <cite>&copy; 2007-2022 Mathopolis</cite>
-        <!-- <script src="code.js"></script> -->
-        <script src="lab3.js"></script>
+        <!-- <script src="lab3.js"></script> -->
     </footer>
 </body>
 
