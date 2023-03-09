@@ -38,6 +38,28 @@ header{
     min-width: 50px;
 }
 
+.modal-container {
+    position: fixed;
+    left: 0;
+    top: 0; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 100vw;
+    height: 100vh; 
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    overflow: scroll;
+    width: 100%; 
+    height: 100%; 
+    max-width: 500px; 
+    max-height: 400px; 
+    background-color: #fff; 
+}
+
 main p{
     min-width: 345px;
     max-width: 800px;
@@ -692,7 +714,7 @@ cite{
     
     .top>.m_btn{
         visibility: visible;
-        width:130px;
+        width:150px;
         height: 50px;
         background-color: var(--top_btn);
     }
