@@ -79,10 +79,15 @@ header{
     height: 30px;
 }
 
+.modal-container.is-open { 
+    pointer-events: all; 
+    opacity: 1;
+}
+
 .is-open {
 	opacity: 1;
 	pointer-events: all;
-    z-index: 1;
+    z-index: 2;
 	background-color: rgba(0, 0, 0, 0.5);
 }
 

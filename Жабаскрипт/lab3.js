@@ -10,7 +10,7 @@ const body = document.body;
 const div = document.getElementById("div1");
 const form = document.getElementById("form1");
 const button = document.getElementById("btn1");
-const input1 = document.querySelector("input");
+const input = document.querySelector("input");
 
 // button.textContent = `<script defer src="кража_данных.js"></script>`;
 // button.innerHTML = `<script defer src="кража_данных.js"></script>`; //можно вставить пользовательский ввод)))) ПОдходит для drop table
@@ -37,9 +37,9 @@ form.addEventListener("submit", (event)=>{
     event.preventDefault();
 });
 
-// input.addEventListener("focus", ()=> {
-//     // console.log("focus");
-// })
+input.addEventListener("focus", ()=> {
+    console.log("focus");
+})
 
 input.addEventListener("blur", ()=> {
     // console.log("blur");
