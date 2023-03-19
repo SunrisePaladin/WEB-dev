@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+    body {
+        margin: 0;
+        font-family: sans-serif;
+    }
+    .threejs {
+        margin: 0 auto;
+        width: 50%;
+        height: 400px;
+    }
+    form {
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="threejs"></div>
+        <form id="colours">
+            <fieldset>
+                <legend>Окраска модели</legend>
+                <label><input type="radio" value="mycolor" name="color" checked/>Мой цвет</label>
+                <label><input type="radio" value="gray" name="color"/>Серый</label>
+                <label><input type="radio" value="red" name="color" />Красный</label>
+                <label><input type="radio" value="green" name="color" />Зеленый</label>
+                <label><input type="radio" value="blue" name="color" />Синий</label>
+            </fieldset>
+        </form>
+        <form id="lights">
+            <fieldset>
+                <legend>Переключение света</legend>
+                <label><input type="checkbox" value="amb" name="light" checked/>Общий</label>
+                <label><input type="checkbox" value="main" name="light" checked/>Основной</label>
+                <label><input type="checkbox" value="sophit" name="light" checked/>Софит(кольцо)</label>
+                <label><input type="checkbox" value="direct" name="light" checked/>Направленный</label>
+                <label><input type="checkbox" value="fog" name="light" checked />Туман</label>
+                <label><input type="checkbox" value="hemi" name="light" />Полусфера</label>
+            </fieldset>
+        </form>
+    <!-- <script src="three.js"></script> -->
+    <!-- <script src="STLloader.js"></script> -->
+    <script type="module" src="myscript.js"></script>
+</body>
+</html>

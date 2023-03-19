@@ -1,26 +1,44 @@
-var modal = document.querySelector('.modal-container');
-var closeButton = document.querySelector('.close');
-var modalTriggers = document.querySelectorAll('[data-trigger]');
-var isModalOpen = false;
-var pageYOffset = 0;
+const modal = document.querySelector('.modal-container');
+const cont = document.querySelector('.modal-content');
+let closeButton = document.querySelector('.close');
+let modalTriggers = document.querySelectorAll('[data-trigger]');
+let isModalOpen = false;
+let pageOffset = 0;
+const mod = document.getElementById("modal");
 
-var openModal = function() {
-    modal.classList.add('is-open')
+let openModal = function() {
+    modal.classList.add('is-open');
+    isModalOpen = true;
+    pageOffset = window.scrollY;
 }
-var closeModal = function() {
-    modal.classList.remove('is-open')
+let closeModal = function() {
+    modal.classList.remove('is-open');
+    isModalOpen = false;
+    // console.dir(input1);
+    input1.value="";
+    input2.value="";
 }
+
+modal.addEventListener("click", (event)=>{
+    if (isModalOpen && event.target == modal){
+        closeModal();
+        console.log(event.target);
+    }
+    else console.log(event.target);
+});
+
 modalTriggers.forEach(function(item) { 
     item.addEventListener('click', openModal)
 })
-closeButton.addEventListener('click', closeModal)
-document.addEventListener('scroll', onScroll);
+closeButton.addEventListener('click', closeModal);
 
-var onScroll = function(e) {
+let onScroll = function(e) {
     if (isModalOpen) {
-        window.scrollTo(0, pageYOffset);
+        window.scrollTo(0, pageOffset);
     }
 }
+
+document.addEventListener('scroll', onScroll);
 
 const body = document.body;
 const form = document.getElementById("form1");
@@ -29,34 +47,40 @@ const btn_send = document.getElementById("btn2");
 const input1 = document.getElementById("id1");
 const input2 = document.getElementById("id2");
 
+
 form.addEventListener("submit", (event)=>{
     email = input1.value;
     password = input2.value;
     console.table({email, password});
     event.preventDefault();
+    closeModal();
+    btn_show.setAttribute("disabled", 'false');
 });
 
 input1.addEventListener("focus", ()=> {
-    console.log("focus");
+    console.log("focus1");
 })
 input2.addEventListener("focus", ()=> {
-    console.log("focus");
+    console.log("focus2");
 })
 
 btn_show.addEventListener("pointerdown", ()=>{
     input2.setAttribute("type", "text");
-    // console.dir(input2);
+    // event.preventDefault();
+    btn_show.setAttribute("disabled", 'true');
 })
 
 btn_show.addEventListener("pointerleave", ()=>{
     input2.setAttribute("type", "password");
+    btn_show.setAttribute("disabled", 'false');
+    console.dir(btn_show);
     // console.dir(input2);
 })
 
 input1.addEventListener("blur", ()=> {
     if (input1.validity.typeMismatch){
         error.textContent = "Не почта";
-        input1.serCustomValidity("Не почта");
+        input1.setCustomValidity("Не почта");
     }
     else if (input1.validity.tooShort){
     error.textContent = "Мало";
@@ -71,7 +95,7 @@ input1.addEventListener("blur", ()=> {
 input2.addEventListener("blur", ()=> {
     if (input2.validity.typeMismatch){
         error.textContent = "Неверный пароль";
-        input2.serCustomValidity("Неправильный пароль");
+        input2.setCustomValidity("Неправильный пароль");
     }
     else if (input2.validity.tooShort){
     error.textContent = "Мало";
