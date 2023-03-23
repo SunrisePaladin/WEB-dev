@@ -96,6 +96,11 @@ main p{
     max-width: 800px;
 }
 
+.err_msg{
+    min-height: 10px;
+    line-height: normal;
+}
+
 .formed{
     display: flex;
     flex-direction: column;
