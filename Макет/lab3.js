@@ -15,8 +15,6 @@ let closeModal = function() {
     modal.classList.remove('is-open');
     isModalOpen = false;
     // console.dir(input1);
-    input1.value="";
-    input2.value="";
 }
 
 modal.addEventListener("click", (event)=>{
@@ -54,6 +52,8 @@ form.addEventListener("submit", (event)=>{
     console.table({email, password});
     event.preventDefault();
     closeModal();
+    input1.value="";
+    input2.value="";
     btn_show.setAttribute("disabled", 'false');
 });
 
@@ -79,14 +79,14 @@ btn_show.addEventListener("pointerleave", ()=>{
 
 input1.addEventListener("blur", ()=> {
     if (input1.validity.typeMismatch){
-        error.textContent = "Не почта";
+        error1.textContent = "Не почта";
         input1.setCustomValidity("Не почта");
     }
     else if (input1.validity.tooShort){
-    error.textContent = "Мало";
+    error1.textContent = "Мало";
     }
     else{
-        error.textContent = "";
+        error1.textContent = "";
         input1.setCustomValidity("");
     }
     console.log(input1.validity);
@@ -94,14 +94,14 @@ input1.addEventListener("blur", ()=> {
 
 input2.addEventListener("blur", ()=> {
     if (input2.validity.typeMismatch){
-        error.textContent = "Неверный пароль";
+        error2.textContent = "Неверный пароль";
         input2.setCustomValidity("Неправильный пароль");
     }
     else if (input2.validity.tooShort){
-    error.textContent = "Мало";
+    error2.textContent = "Мало";
     }
     else{
-        error.textContent = "";
+        error2.textContent = "";
         input2.setCustomValidity("");
     }
     console.log(input2.validity);
