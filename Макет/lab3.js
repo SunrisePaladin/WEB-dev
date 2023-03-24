@@ -54,7 +54,7 @@ form.addEventListener("submit", (event)=>{
     closeModal();
     input1.value="";
     input2.value="";
-    btn_show.setAttribute("disabled", 'false');
+    //btn_show.setAttribute("disabled", 'false');
 });
 
 input1.addEventListener("focus", ()=> {
@@ -67,12 +67,12 @@ input2.addEventListener("focus", ()=> {
 btn_show.addEventListener("pointerdown", ()=>{
     input2.setAttribute("type", "text");
     // event.preventDefault();
-    btn_show.setAttribute("disabled", 'true');
+    //btn_show.setAttribute("disabled", 'true');
 })
 
 btn_show.addEventListener("pointerleave", ()=>{
     input2.setAttribute("type", "password");
-    btn_show.setAttribute("disabled", 'false');
+    //btn_show.setAttribute("disabled", 'false');
     console.dir(btn_show);
     // console.dir(input2);
 })
