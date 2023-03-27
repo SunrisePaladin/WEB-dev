@@ -1,42 +1,46 @@
 const modal = document.querySelector('.modal-container');
 const cont = document.querySelector('.modal-content');
+//const modal = document.getElementsByClassName("modal-container")
+//const cont = document.getElementsByClassName("modal-content");
+//const mod = document.getElementById("modal");
+
 let closeButton = document.querySelector('.close');
 let modalTriggers = document.querySelectorAll('[data-trigger]');
 let isModalOpen = false;
 let pageOffset = 0;
-const mod = document.getElementById("modal");
 
 let openModal = function() {
     modal.classList.add('is-open');
     isModalOpen = true;
     pageOffset = window.scrollY;
 }
+
 let closeModal = function() {
     modal.classList.remove('is-open');
     isModalOpen = false;
     // console.dir(input1);
 }
 
-modal.addEventListener("click", (event)=>{
-    if (isModalOpen && event.target == modal){
-        closeModal();
-        console.log(event.target);
-    }
-    else console.log(event.target);
-});
-
 modalTriggers.forEach(function(item) { 
     item.addEventListener('click', openModal)
 })
-closeButton.addEventListener('click', closeModal);
 
-let onScroll = function(e) {
+modal.addEventListener("click", (event)=>{
+    if (isModalOpen && event.target == modal){
+        closeModal();
+        // console.log(event.target);
+    }
+    // else console.log(event.target);
+});
+
+closeButton.addEventListener('click', closeModal);
+document.addEventListener('scroll', onScroll);
+
+let onScroll = function() {
     if (isModalOpen) {
         window.scrollTo(0, pageOffset);
     }
 }
-
-document.addEventListener('scroll', onScroll);
 
 const body = document.body;
 const form = document.getElementById("form1");
@@ -44,7 +48,6 @@ const btn_show = document.getElementById("btn1");
 const btn_send = document.getElementById("btn2");
 const input1 = document.getElementById("id1");
 const input2 = document.getElementById("id2");
-
 
 form.addEventListener("submit", (event)=>{
     email = input1.value;
@@ -66,15 +69,10 @@ input2.addEventListener("focus", ()=> {
 
 btn_show.addEventListener("pointerdown", ()=>{
     input2.setAttribute("type", "text");
-    // event.preventDefault();
-    //btn_show.setAttribute("disabled", 'true');
 })
 
 btn_show.addEventListener("pointerleave", ()=>{
     input2.setAttribute("type", "password");
-    //btn_show.setAttribute("disabled", 'false');
-    console.dir(btn_show);
-    // console.dir(input2);
 })
 
 input1.addEventListener("blur", ()=> {
