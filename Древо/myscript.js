@@ -62,7 +62,7 @@ function onWindowResize() {
 }
 
 
-const camera = new THREE.PerspectiveCamera(80, div.clientWidth / div.clientHeight, 0.1, 100);
+const camera = new THREE.PerspectiveCamera(70, div.clientWidth / div.clientHeight, 0.1, 200);
 camera.position.set(-5, 2, -10);
 let cameraTarget = new THREE.Vector3(0, 0.4, 0);
 
@@ -79,10 +79,10 @@ const hemiLight = new THREE.HemisphereLight(0x000000, 0x0000ff);
 hemiLight.position.set(0, 20, 0);
 scene.add(hemiLight);
 
-const ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.7);
+const ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.3);
 scene.add(ambientLight);
 
-const mainLight = new THREE.DirectionalLight(0xE2D86F, 0.7);
+const mainLight = new THREE.DirectionalLight(0xE2D86F, 0.3);
 mainLight.position.set(0, 10, -5);
 mainLight.target.position.set(0, 1, 0);
 scene.add(mainLight);
@@ -172,7 +172,7 @@ scene.add(mesh2);
 const TetraGeometry = new THREE.ConeGeometry( 1, 1, 3 );
 const TetraMaterial = new THREE.MeshPhongMaterial( {color: 0xFA36A0} );
 let cone = new THREE.Mesh(TetraGeometry, TetraMaterial );
-cone.position.set(0, 0, 0);
+cone.position.set(1, 0, 1.5);
 cone.receiveShadow = true;
 cone.castShadow = true;
 scene.add(cone);
@@ -187,8 +187,8 @@ function render() {
     const elapsedTime = clock.getElapsedTime()
 
     // camera.position.y = ctg(elapsedTime * 0.5);
-    camera.position.z = Math.sin(elapsedTime * 0.5) * 2;
-    camera.position.x = Math.cos(elapsedTime * 0.5) * 2;
+    camera.position.z = Math.sin(elapsedTime * 0.5) * 4;
+    camera.position.x = Math.cos(elapsedTime * 0.5) * 4;
     camera.lookAt(cameraTarget);
 
     renderer.render(scene, camera);
