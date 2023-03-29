@@ -1,14 +1,83 @@
 const http = require('node:http')
-
-const host = "127.0.0.1"
-const port = 5500
-let serv_act_users = 0
+const fs = require('fs');
+let comments = ['comment 1', 'comment 2', 'comment 3', 'comment 4'];
+const host = "127.0.0.1";
+const port = 5500;
+let serv_act_users = 0;
+let resp_ans = 'undefined response';
+let tableRows=[["user-agent-1", "admin"], ["user-agent-2", "admin"]];
 var now = new Date();
+
+
+
+
+function generateHTMLTable(array) {
+    let html = '<table border="1">';
+    for (let i = 0; i < array.length; i++) {
+        html += `<tr><td>${array[i][0]}</td><td>${array[i][1]}</td></tr>`;
+    }
+    html += '</table>';
+    return html
+}
+
+
 const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end(`Your status is - ${getAllUrlParams(req.url).stat} \nHello, user ${getAllUrlParams(req.url).id}\nYou have connected at ${now}`);
+    const my_html = 'index.html';
+    if (req.url === '/' || req.url === '/homepage'){
+        if (req.method === 'GET') {
+            resp_ans = 'Hello GetWorld!';
+            res.statusCode = 200;
+            res.end(resp_ans);
+        }
+        else if (req.method === 'POST') {
+            resp_ans = 'Hello PostWorld!';
+            res.statusCode = 200;
+            res.end('Welcome');
+        }
+    }
+    else if (req.url.includes('/register')){
+        res.statusCode = 200;
+        res.end(`User ${getAllUrlParams(req.url).id} registered!`);
+        tableRows.push([getAllUrlParams(req.url).id, getAllUrlParams(req.url).stat]);
+        // console.log(`${resp_ans}\nYour status is - ${getAllUrlParams(req.url).stat}\nHello, user ${getAllUrlParams(req.url).id}\nYou have connected at ${now}`);
+    }
+    else if (req.url === '/comments'){
+        res.statusCode = 200;
+        console.log("I'm active")
+        if (req.method === 'GET') {
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify(comments));
+        }
+        else if (req.method === 'POST') {
+            let tree = "";
+            req.on('data', (chunk) => {
+                tree += chunk;
+            });
+            req.on('end', () => {
+                comments.push(tree);
+                console.table(comments);
+                res.setHeader('Content-Type', 'text/html');
+                res.end('advance');
+            });
+        }    
+    }
+    else if (req.url === '/stats'){
+        res.statusCode = 200;
+        if (req.method === 'GET'){
+            res.setHeader('Content-Type', 'text/html');
+            res.end(generateHTMLTable(tableRows));
+        }
+    }
+    else {
+        res.statusCode = 400;
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        fs.createReadStream('C:/проекты/WEB/WEB-dev/node-server/respond_html/Styles/style.css');
+        fs.createReadStream('C:/проекты/WEB/WEB-dev/node-server/respond_html/index.html').pipe(res);
+        //res.end();
+    }
+    //res.setHeader('Content-Type', 'text/plain');
 });
+
 
 server.on("connection", () => {
     serv_act_users++;
@@ -18,7 +87,6 @@ server.on("connection", () => {
 
 server.on("request", () => {
     console.log("I've recieved a new request");
-    //console.log(`${getAllUrlParams().stat}`);
 })
 
 server.listen(port, host, () => {
