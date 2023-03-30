@@ -3,13 +3,13 @@ const fs = require('fs');
 let comments = ['comment 1', 'comment 2', 'comment 3', 'comment 4'];
 const host = "127.0.0.1";
 const port = 5500;
-let serv_act_users = 0;
+let serv_act_count = 0;
 let resp_ans = 'undefined response';
-let tableRows=[["user-agent-1", "admin"], ["user-agent-2", "admin"]];
+let tableRows=[["Chrome Web Kit", "0"]];
 var now = new Date();
-
-
-
+let express = require('express');
+let router = express();
+let browser = require('browser-detect');
 
 function generateHTMLTable(array) {
     let html = '<table border="1">';
@@ -32,13 +32,18 @@ const server = http.createServer((req, res) => {
         else if (req.method === 'POST') {
             resp_ans = 'Hello PostWorld!';
             res.statusCode = 200;
-            res.end('Welcome');
+            res.end(resp_ans);
         }
     }
     else if (req.url.includes('/register')){
         res.statusCode = 200;
+
+        let user_agent = req.headers['user-agent'];
+        let ua = browser(req.headers['user-agent']);
+        console.log(ua);
         res.end(`User ${getAllUrlParams(req.url).id} registered!`);
-        tableRows.push([getAllUrlParams(req.url).id, getAllUrlParams(req.url).stat]);
+        tableRows.push([ua.name+' '+ua.version, serv_act_count]);
+        //tableRows.push([getAllUrlParams(req.url).id, getAllUrlParams(req.url).stat]);
         // console.log(`${resp_ans}\nYour status is - ${getAllUrlParams(req.url).stat}\nHello, user ${getAllUrlParams(req.url).id}\nYou have connected at ${now}`);
     }
     else if (req.url === '/comments'){
@@ -71,16 +76,16 @@ const server = http.createServer((req, res) => {
     else {
         res.statusCode = 400;
         res.writeHead(200, {'Content-Type': 'text/html'});
-        fs.createReadStream('C:/проекты/WEB/WEB-dev/node-server/respond_html/Styles/style.css');
+        //fs.createReadStream('C:/проекты/WEB/WEB-dev/node-server/respond_html/Styles/style.css');
+        //fs.createReadStream('C:/проекты/WEB/WEB-dev/node-server/respond_html/sans-undertale-dance.gif');
         fs.createReadStream('C:/проекты/WEB/WEB-dev/node-server/respond_html/index.html').pipe(res);
         //res.end();
     }
-    //res.setHeader('Content-Type', 'text/plain');
 });
 
 
 server.on("connection", () => {
-    serv_act_users++;
+    serv_act_count++;
     console.log(now);
     console.log("new connect");
 });
