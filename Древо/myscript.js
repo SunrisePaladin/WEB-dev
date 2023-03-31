@@ -61,7 +61,6 @@ function onWindowResize() {
     renderer.setSize(div.clientWidth, div.clientHeight);
 }
 
-
 const camera = new THREE.PerspectiveCamera(70, div.clientWidth / div.clientHeight, 0.1, 200);
 camera.position.set(-5, 2, -10);
 let cameraTarget = new THREE.Vector3(0, 0.4, 0);

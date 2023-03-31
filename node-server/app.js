@@ -48,10 +48,11 @@ const server = http.createServer((req, res) => {
     }
     else if (req.url === '/comments'){
         res.statusCode = 200;
-        console.log("I'm active")
+        console.log("I'm active");
         if (req.method === 'GET') {
+            console.log(req.body);
             res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify(comments));
+            res.end('advance in using GET method');
         }
         else if (req.method === 'POST') {
             let tree = "";
@@ -60,9 +61,9 @@ const server = http.createServer((req, res) => {
             });
             req.on('end', () => {
                 comments.push(tree);
-                console.table(comments);
+                console.log(comments);
                 res.setHeader('Content-Type', 'text/html');
-                res.end('advance');
+                res.end(JSON.stringify(comments));
             });
         }    
     }
@@ -76,10 +77,10 @@ const server = http.createServer((req, res) => {
     else {
         res.statusCode = 400;
         res.writeHead(200, {'Content-Type': 'text/html'});
-        //fs.createReadStream('C:/проекты/WEB/WEB-dev/node-server/respond_html/Styles/style.css');
-        //fs.createReadStream('C:/проекты/WEB/WEB-dev/node-server/respond_html/sans-undertale-dance.gif');
-        fs.createReadStream('C:/проекты/WEB/WEB-dev/node-server/respond_html/index.html').pipe(res);
-        //res.end();
+        //fs.createReadStream('C:/проекты/WEB/WEB-dev/node-server/Styles/style.css');
+        //let mygif = fs.createReadStream('C:/проекты/WEB/WEB-dev/node-server/Pic/sans-undertale-dance.gif');
+        fs.createReadStream('C:/проекты/WEB/WEB-dev/node-server/index.html').pipe(res);
+        //res.end(mygif);
     }
 });
 
