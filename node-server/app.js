@@ -10,6 +10,7 @@ var now = new Date();
 let express = require('express');
 let router = express();
 let browser = require('browser-detect');
+let isStated = false;
 
 function generateHTMLTable(array) {
     let html = '<table border="1">';
@@ -37,12 +38,20 @@ const server = http.createServer((req, res) => {
     }
     else if (req.url.includes('/register')){
         res.statusCode = 200;
-
-        let user_agent = req.headers['user-agent'];
+        //let user_agent = req.headers['user-agent'];
         let ua = browser(req.headers['user-agent']);
-        console.log(ua);
+        console.log(ua.name);
         res.end(`User ${getAllUrlParams(req.url).id} registered!`);
-        tableRows.push([ua.name+' '+ua.version, serv_act_count]);
+        isStated = false;
+        for (let i = 0; i < tableRows.length; i++) {
+            if (tableRows[i][0] === ua.name + ' ' + ua.version) {
+                isStated = true;
+            }
+        }
+        if (isStated){
+            tableRows[tableRows.length - 1][1]++;
+        }
+        else tableRows.push([ua.name+' '+ua.version, 1]);
         //tableRows.push([getAllUrlParams(req.url).id, getAllUrlParams(req.url).stat]);
         // console.log(`${resp_ans}\nYour status is - ${getAllUrlParams(req.url).stat}\nHello, user ${getAllUrlParams(req.url).id}\nYou have connected at ${now}`);
     }
@@ -130,8 +139,8 @@ function getAllUrlParams(url) {
             var paramValue = typeof(a[1])==='undefined' ? true : a[1];
 
             // преобразование регистра
-            paramName = paramName.toLowerCase();
-            paramValue = paramValue.toLowerCase();
+            //paramName = paramName.toLowerCase();
+            //paramValue = paramValue.toLowerCase();
 
             // если ключ параметра уже задан
             if (obj[paramName]) {
