@@ -1,0 +1,12 @@
+{
+  "name": "counter_mod",
+  "version": "1.0.0",
+  "main": "comJSCountMod.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "ArtSolo",
+  "license": "ISC",
+  "description": "simple module"
+}
