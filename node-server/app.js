@@ -1,17 +1,16 @@
 const http = require('node:http');
 const comJScnt = require('counter_mod');
-let num = comJScnt.m_count;
+const browser = require('browser-detect');
+const express = require('express');
 const fs = require('fs');
-let comments = ['comment 1', 'comment 2', 'comment 3', 'comment 4'];
+
 const host = "127.0.0.1";
 const port = 5500;
-let serv_act_count = 0;
+const app = express();
+
+let comments = ['comment 1', 'comment 2', 'comment 3', 'comment 4'];
 let resp_ans = 'undefined response';
 let tableRows=[["Chrome Web Kit", "0"]];
-var now = new Date();
-let express = require('express');
-let router = express();
-let browser = require('browser-detect');
 let isStated = false;
 
 function generateHTMLTable(array) {
@@ -24,12 +23,10 @@ function generateHTMLTable(array) {
 }
 
 const server = http.createServer((req, res) => {
-    const my_html = 'index.html';
     if (req.url === '/' || req.url === '/homepage'){
         if (req.method === 'GET') {
             resp_ans = 'Hello GetWorld!';
             comJScnt.m_increase();
-            // console.log(comJScnt);
             res.statusCode = 200;
             res.end(resp_ans);
         }
@@ -42,9 +39,7 @@ const server = http.createServer((req, res) => {
     }
     else if (req.url.includes('/register')){
         res.statusCode = 200;
-        //let user_agent = req.headers['user-agent'];
         let ua = browser(req.headers['user-agent']);
-        console.log(ua.name);
         res.end(`User ${getAllUrlParams(req.url).id} registered!`);
         isStated = false;
         for (let i = 0; i < tableRows.length; i++) {
@@ -56,13 +51,10 @@ const server = http.createServer((req, res) => {
             tableRows[tableRows.length - 1][1]++;
         }
         else tableRows.push([ua.name+' '+ua.version, 1]);
-        // console.log(`${resp_ans}\nYour status is - ${getAllUrlParams(req.url).stat}\nHello, user ${getAllUrlParams(req.url).id}\nYou have connected at ${now}`);
-    }
+        }
     else if (req.url === '/comments'){
         res.statusCode = 200;
-        console.log("I'm active");
         if (req.method === 'GET') {
-            console.log(req.body);
             res.setHeader('Content-Type', 'text/plain');
             res.end('advance in using GET method');
         }
@@ -73,7 +65,6 @@ const server = http.createServer((req, res) => {
             });
             req.on('end', () => {
                 comments.push(tree);
-                console.log(comments);
                 res.setHeader('Content-Type', 'application/json');
                 res.end(JSON.stringify(comments));
             });
@@ -88,17 +79,15 @@ const server = http.createServer((req, res) => {
     }
     else {
         res.statusCode = 400;
-        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.writeHead(400, {'Content-Type': 'text/plain'});
         //fs.createReadStream('C:/проекты/WEB/WEB-dev/node-server/Styles/style.css');
-        //let mygif = fs.createReadStream('C:/проекты/WEB/WEB-dev/node-server/Pic/sans-undertale-dance.gif');
+        //fs.createReadStream('C:/проекты/WEB/WEB-dev/node-server/Pic/sans-undertale-dance.gif');
         //fs.createReadStream('C:/проекты/WEB/WEB-dev/node-server/index.html').pipe(res);
         res.end('Bad request');
     }
 });
 
 server.on("connection", () => {
-    serv_act_count++;
-    console.log(now);
     console.log("new connect");
 });
 
@@ -112,56 +101,37 @@ server.listen(port, host, () => {
 })
 
 function getAllUrlParams(url) {
-    // извлекаем строку из URL или объекта window
     var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
 
-    // объект для хранения параметров
     var obj = {};
 
-    // если есть строка запроса
     if (queryString) {
-        // данные после знака # будут опущены
         queryString = queryString.split('#')[0];
 
-        // разделяем параметры
         var arr = queryString.split('&');
 
         for (var i=0; i<arr.length; i++) {
-            // разделяем параметр на ключ => значение
             var a = arr[i].split('=');
 
-            // обработка данных вида: list[]=thing1&list[]=thing2
             var paramNum = undefined;
             var paramName = a[0].replace(/\[\d*\]/, function(v) {
             paramNum = v.slice(1,-1);
             return '';
             });
 
-            // передача значения параметра ('true' если значение не задано)
             var paramValue = typeof(a[1])==='undefined' ? true : a[1];
 
-            // преобразование регистра
-            //paramName = paramName.toLowerCase();
-            //paramValue = paramValue.toLowerCase();
-
-            // если ключ параметра уже задан
             if (obj[paramName]) {
-              // преобразуем текущее значение в массив
                 if (typeof obj[paramName] === 'string') {
                     obj[paramName] = [obj[paramName]];
                 }
-                // если не задан индекс...
                 if (typeof paramNum === 'undefined') {
-                    // помещаем значение в конец массива
                     obj[paramName].push(paramValue);
                 }
-                // если индекс задан...
                 else {
-                    // размещаем элемент по заданному индексу
                     obj[paramName][paramNum] = paramValue;
                 }
             }
-            // если параметр не задан, делаем это вручную
             else {
                 obj[paramName] = paramValue;
             }
