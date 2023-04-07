@@ -1,5 +1,5 @@
 const http = require('node:http');
-const comJScnt = require('counter_mod');
+// const comJScnt = require('counter_mod');
 const browser = require('browser-detect');
 const express = require('express');
 const fs = require('fs');
@@ -26,13 +26,13 @@ const server = http.createServer((req, res) => {
     if (req.url === '/' || req.url === '/homepage'){
         if (req.method === 'GET') {
             resp_ans = 'Hello GetWorld!';
-            comJScnt.m_increase();
+            // comJScnt.m_increase();
             res.statusCode = 200;
             res.end(resp_ans);
         }
         else if (req.method === 'POST') {
             resp_ans = 'Hello PostWorld!';
-            comJScnt.m_reset();
+            // comJScnt.m_reset();
             res.statusCode = 200;
             res.end(resp_ans);
         }
@@ -78,12 +78,12 @@ const server = http.createServer((req, res) => {
         }
     }
     else {
-        res.statusCode = 400;
+        res.statusCode = 404;
         res.writeHead(400, {'Content-Type': 'text/plain'});
         //fs.createReadStream('C:/проекты/WEB/WEB-dev/node-server/Styles/style.css');
         //fs.createReadStream('C:/проекты/WEB/WEB-dev/node-server/Pic/sans-undertale-dance.gif');
         //fs.createReadStream('C:/проекты/WEB/WEB-dev/node-server/index.html').pipe(res);
-        res.end('Bad request');
+        //res.end('Bad request');
     }
 });
 

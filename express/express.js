@@ -1,22 +1,13 @@
-const http = require('node:http');
-const comJScnt = require('counter_mod');
 const express = require('express');
 const browser = require('browser-detect');
 const fs = require('fs');
 
-const host = "127.0.0.1";
-const port = 5501;
-const app = express();
+const fileRouter = express.Router();
+const router = express.Router();
 
 let comments = ['comment 1', 'comment 2', 'comment 3', 'comment 4'];
 let isStated = false;
-let num = comJScnt.m_count;
-let resp_ans = 'undefined response';
 let tableRows=[["Chrome Web Kit", "0"]];
-
-//app.use(express.static('public'));
-//app.use(express.static(__dirname + "/public"));
-//app.use(express.static(`${__dirname}/public`));
 
 function generateHTMLTable(array) {
     let html = '<table border="1">';
@@ -67,37 +58,50 @@ function getAllUrlParams(url) {
     return obj;
 }
 
-function* gen() {
-    while(true) {
-        let value = yield null;
-        console.log(value);
-    }
-}
+router.use(express.json());
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port} and host ${host}`);
-})
-
-app.get('/', (req, res) => {
-    res.statusCode = 302;
-    res.redirect('http://127.0.0.1:5501/homepage');
+fileRouter.use("/sans", function(req, res){
+    res.statusCode = 200;
+    router.use(express.static(__dirname + "/public"));
+    res.end(fs.readFileSync(`${__dirname}/public/Pic/sans-undertale-dance.gif`));
 });
 
-app.get('/homepage', (req, res) => {
-    app.use(express.static(__dirname + "/public"));
-    //comJScnt.m_increase();
+fileRouter.use("/zhaba", function(req, res){
     res.statusCode = 200;
-    res.send('Hello GetWorld!');
-})
-
-app.post('/post', (req, res) => {
-    app.use(express.static(__dirname + "/public"));
-    //comJScnt.m_reset();
-    res.statusCode = 200;
-    res.send('Hello PostWorld!');
+    router.use(express.static(__dirname + "/public"));
+    res.end(fs.readFileSync(`${__dirname}/public/Pic/zhaba.png`));
 });
 
-app.get('/register', (req, res) => {
+router.use("/pic", fileRouter);
+
+router.use(function (req, res, next) {
+    console.log('Time:', Date.now());
+    next();
+});
+
+router.post('/profile', function (req, res, next) {
+    console.log(req.body);
+    res.json(req.body);
+})
+
+router.post('/comments', (req, res) => {
+    res.statusCode = 200;
+    comments.push(req.body.comment);
+    res.json(comments);
+});
+
+router.get('/stats', (req, res) => {res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/html');
+    res.end(generateHTMLTable(tableRows));
+});
+
+router.get('/index', (req, res) => {
+    res.statusCode = 200;
+    router.use(express.static(__dirname + "/public"));
+    res.end(fs.readFileSync(`${__dirname}/public/index.html`));
+});
+
+router.get('/register', (req, res) => {
     console.log("registration");
     res.statusCode = 200;
     let ua = browser(req.headers['user-agent']);
@@ -114,20 +118,7 @@ app.get('/register', (req, res) => {
         else tableRows.push([ua.name+' '+ua.version, 1]);
 });
 
-app.post('/comments', (req, res) => {
-    res.statusCode = 200;
-    let tree = "";
-    req.on('data', (chunk) => {
-        tree += chunk;
-    })
-    req.on('end', () => {
-        comments.push(tree);
-        res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify(comments));
-    })   
-});
-
-app.get('/stats', (req, res) => {res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
-    res.end(generateHTMLTable(tableRows));
-});
+module.exports = {
+    router,
+    comments
+}

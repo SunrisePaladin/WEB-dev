@@ -16,5 +16,6 @@ exports.m_count = count;
 // или (эквивалентно)
 //module.exports = {
 //    increase,
-//    reset
+//    reset,
+//    count
 //}
