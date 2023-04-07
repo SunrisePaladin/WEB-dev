@@ -10,9 +10,9 @@ const reset = () => {
     console.log('Счетчик сброшен.')
 }
 
-exports.m_increase = increase;
-exports.m_reset = reset;
-exports.m_count = count;
+exports.increase = increase;
+exports.reset = reset;
+exports.count = count;
 // или (эквивалентно)
 //module.exports = {
 //    increase,
