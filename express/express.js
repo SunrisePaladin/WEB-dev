@@ -1,6 +1,9 @@
 const express = require('express');
 const browser = require('browser-detect');
 const fs = require('fs');
+const helmet = require('helmet');
+const passport = require('passport');
+const morgan = require('morgan');
 
 const fileRouter = express.Router();
 const router = express.Router();
@@ -8,6 +11,18 @@ const router = express.Router();
 let comments = ['comment 1', 'comment 2', 'comment 3', 'comment 4'];
 let isStated = false;
 let tableRows=[["Chrome Web Kit", "0"]];
+
+LocalStrategy = require('passport-local').Strategy;
+passport.use(new LocalStrategy(
+    function(username, password, done) {
+        User.findOne({ username: username }, function (err, user) {
+            if (err) { return done(err); }
+            if (!user) { return done(null, false); }
+            if (!user.verifyPassword(password)) { return done(null, false); }
+            return done(null, user);
+        });
+    }
+));
 
 function generateHTMLTable(array) {
     let html = '<table border="1">';
@@ -58,6 +73,30 @@ function getAllUrlParams(url) {
     return obj;
 }
 
+morgan.token('host', function(req, res) {
+    return req.hostname;
+});
+
+router.use(
+    helmet.contentSecurityPolicy({
+        useDefaults: true,
+        directives: {
+        "script-src": ["'self'", "codeacademy.com"],
+        "style-src": null,
+        },
+    })
+);
+
+router.use( 
+    helmet.expectCt({ 
+        maxAge: 96400, 
+        enforce: true, 
+        reportUri: "https://securecoding.com/report", 
+    }) 
+);
+
+router.use(morgan('tiny'));
+router.use(helmet());
 router.use(express.json());
 
 fileRouter.use("/sans", function(req, res){
