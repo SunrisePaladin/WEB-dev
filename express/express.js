@@ -9,6 +9,7 @@ const fileRouter = express.Router();
 const router = express.Router();
 
 let comments = ['comment 1', 'comment 2', 'comment 3', 'comment 4'];
+let apis = [{key : '1234', value : "value1"}, {key : '5678', value : "value2"}, {key : '9012', value : "value3"}];
 let isStated = false;
 let tableRows=[["Chrome Web Kit", "0"]];
 
@@ -32,6 +33,25 @@ function generateHTMLTable(array) {
     html += '</table>';
     return html
 }
+
+// function checkKey(req, res, next){
+//     let key = getAllUrlParams(req.url).key;
+//     if (!key) {
+//         return res.status(400).send('Key is required');
+//     }
+//     else if (key.length < 4) {
+//         return res.status(400).send('Key must be 4 characters long');
+//     }
+//     else {
+//         next();
+//     }
+// };
+
+// router.get('/key', checkKey =>{
+//     res.status(200);
+//     res.send(req.params.key); //логин по ключу
+// });
+
 
 function getAllUrlParams(url) {
     var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
@@ -87,15 +107,15 @@ router.use(
     })
 );
 
-router.use( 
-    helmet.expectCt({ 
-        maxAge: 96400, 
-        enforce: true, 
-        reportUri: "https://securecoding.com/report", 
-    }) 
-);
+// router.use( 
+//     helmet.expectCt({ 
+//         maxAge: 96400, 
+//         enforce: true, 
+//         reportUri: "https://securecoding.com/report", 
+//     }) 
+// );
 
-router.use(morgan('tiny'));
+router.use(morgan('normal'));
 router.use(helmet());
 router.use(express.json());
 
@@ -121,7 +141,7 @@ router.use(function (req, res, next) {
 router.post('/profile', function (req, res, next) {
     console.log(req.body);
     res.json(req.body);
-})
+});
 
 router.post('/comments', (req, res) => {
     res.statusCode = 200;
@@ -129,9 +149,16 @@ router.post('/comments', (req, res) => {
     res.json(comments);
 });
 
-router.get('/stats', (req, res) => {res.statusCode = 200;
+router.get('/stats', (req, res) => {
+    res.statusCode = 200;
     res.setHeader('Content-Type', 'text/html');
     res.end(generateHTMLTable(tableRows));
+});
+
+router.get('/', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'image/gif');
+    res.end(fs.readFileSync(`${__dirname}/public/flaming-fart.gif`));
 });
 
 router.get('/index', (req, res) => {
@@ -143,6 +170,7 @@ router.get('/index', (req, res) => {
 router.get('/register', (req, res) => {
     console.log("registration");
     res.statusCode = 200;
+
     let ua = browser(req.headers['user-agent']);
     res.end(`User ${getAllUrlParams(req.url).id} registered!`);
     isStated = false;

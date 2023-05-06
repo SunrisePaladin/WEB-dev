@@ -2,6 +2,7 @@ const http = require('node:http');
 const express = require('express');
 const cors = require('cors');
 const { router: exportRouterV1 } = require('./express');
+const { router: exportRouterV2 } = require('./mongoDB');
 
 const host = "127.0.0.1";
 const port = 5501;
@@ -19,6 +20,7 @@ app.get('/homepage', (req, res) => {
 });
 
 app.use('/v1', exportRouterV1);
+app.use('/v2', exportRouterV2);
 
 app.get('/coding', cors(), (req, res) => {     
         res.json({         
