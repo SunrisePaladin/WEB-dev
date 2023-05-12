@@ -7,22 +7,6 @@ const client = new MongoClient('mongodb://127.0.0.1:27017', { monitorCommands: t
 //     console.log("Running");
 //     return db;
 // }
-
-// async function run() {
-//     try {
-//         const database = client.db('local');
-//         const text = database.collection('comments');
-//         const query = { name: 'Vlad' };
-//         const resp = await text.findOne(query);
-//         console.log(resp);
-//     } finally {
-//       // Ensures that the client will close when you finish/error
-//         await client.close();
-//     }
-//     return db;
-// }
-//run().catch(console.dir);
-
 async function selectDB(suggestDB){
     if(!suggestDB){
         throw new Error('Database is not defined');    
