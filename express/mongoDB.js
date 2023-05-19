@@ -19,10 +19,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/search/:mode', func_control1);
-
-router.get('/search_all', func_control3);
-
 router.get('/add', func_control2);
+router.get('/search_all', func_control3);
 
 //типа свитч бд добавить сюда?
 // router.post('/add/:reqdb', (req, res)=>{

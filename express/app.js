@@ -36,6 +36,5 @@ app.all('/', (req, res) => {
 app.use((req, res) => {
     res.status(404);
     res.send("bad request");
-    //res.redirect('http://127.0.0.1:5501/homepage');
 });
 
