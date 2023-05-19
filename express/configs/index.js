@@ -2,11 +2,15 @@ const db = require('mongodb').Db;
 const MongoClient = require('mongodb').MongoClient;
 const client = new MongoClient('mongodb://127.0.0.1:27017', { monitorCommands: true });
 
-// async function run(){
-//     let db = await client.connect();
-//     console.log("Running");
-//     return db;
-// }
+async function run(){
+    let connection = await client.connect(function(err){
+        if (err){
+            throw err;
+        }
+    });
+    return connection;
+}
+
 async function selectDB(suggestDB){
     if(!suggestDB){
         throw new Error('Database is not defined');    
@@ -25,5 +29,6 @@ async function selectDB(suggestDB){
 
 module.exports = {
     selectDB,
-    client
+    client,
+    run
 }

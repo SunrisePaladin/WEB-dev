@@ -19,9 +19,6 @@ async function control1(req, res){
         console.log(req.query);
         result = await service1(value, mode);
         if (result == null) result = "not found";
-
-        //result = await service1(req.query.name);
-        //result = await service1("Vlad");
         console.log(result);
         res.send(result);
     }
