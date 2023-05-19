@@ -9,7 +9,6 @@ async function control1(req, res){
     let value = req.query.value;
     console.log(req.query.value);
     if 
-    // (req.params['name'] == "" || req.params['text'] == ""){
     (req.query.id == "" || req.query.name == "" || req.query.text == ""){ //любая проверка query/params
         console.log("no control data");
         res.statusCode = 400;
@@ -27,15 +26,6 @@ async function control1(req, res){
 async function control2(req, res){
     console.log("control 2");
     console.log(req.params['reqdb']);
-    // if (req.params['reqdb'] != 'local'){
-    //     res.statusCode = 302;
-    //     res.send("App fault 'cause db is not local");
-    // }
-    // else{
-    //     result = "Vlad";
-    //     res.statusCode = 200;
-    //     res.send(`${req.params.reqdb} is ok`);
-    // }
 
     let value = req.query.value;
     console.log(req.query.value);
@@ -50,7 +40,6 @@ async function control2(req, res){
         let crdate = new Date();
         console.log(crdate);
         let object = {_id: new ObjectId(tmp_id), name: req.query.name, text: req.query.text, cr_date: crdate}; 
-        //let object = {name: req.query.name, text: req.query.text}; 
         console.log(object);
         result = await service2(object);
         if (result == null) result = "not found";

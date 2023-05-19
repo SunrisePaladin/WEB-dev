@@ -34,25 +34,6 @@ function generateHTMLTable(array) {
     return html
 }
 
-// function checkKey(req, res, next){
-//     let key = getAllUrlParams(req.url).key;
-//     if (!key) {
-//         return res.status(400).send('Key is required');
-//     }
-//     else if (key.length < 4) {
-//         return res.status(400).send('Key must be 4 characters long');
-//     }
-//     else {
-//         next();
-//     }
-// };
-
-// router.get('/key', checkKey =>{
-//     res.status(200);
-//     res.send(req.params.key); //логин по ключу
-// });
-
-
 function getAllUrlParams(url) {
     var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
 
@@ -106,14 +87,6 @@ router.use(
         },
     })
 );
-
-// router.use( 
-//     helmet.expectCt({ 
-//         maxAge: 96400, 
-//         enforce: true, 
-//         reportUri: "https://securecoding.com/report", 
-//     }) 
-// );
 
 router.use(morgan('normal'));
 router.use(helmet());

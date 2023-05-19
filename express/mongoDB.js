@@ -1,6 +1,4 @@
 const express = require('express');
-//const bodyParser = require('body-parser');
-//const show_router = express.Router();
 const router = express.Router();
 const { control1: func_control1, control2: func_control2, control3: func_control3 } = require('./controllers/index');
 
@@ -8,10 +6,6 @@ function response(){
     console.log("database");
 }
 
-// router.get('/search/', function(req, res){
-//     //undefined
-//     res.status(200).send('You have 3 options to choose from: id, name, text');
-// });
 router.use(express.json());
 
 router.get('/', (req, res) => {
