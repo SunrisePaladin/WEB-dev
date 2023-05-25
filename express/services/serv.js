@@ -1,8 +1,10 @@
+const generateHash = require('random-hash');
+const RandomHash = require('random-hash').RandomHash;
 const MongoClient = require('mongodb').MongoClient;
 const db = require('mongodb').Db;
 const {ObjectId} = require('mongodb'); 
 const client = new MongoClient('mongodb://127.0.0.1:27017', { monitorCommands: true });
-const {selectDB : func_search_DB, run: conn_run} = require('../configs/index');
+const {selectDB : selDB, run: conn_run} = require('../configs/conf');
 
 let result = "undefined";
 let mydb = "local"; //локальная бд "local"
@@ -35,8 +37,14 @@ async function serviceSearch(value, mode){
 async function serviceAppend(object){
     console.log("service add is active");
     let connection = await conn_run();
-    result = "Can't add object to DB";
     result = await connection.db(mydb).collection(coll).insertOne(object);
+    return result;
+}
+
+async function getUser(username){
+    console.log("service getUser is active");
+    let connection = await conn_run();
+    result = await connection.db(mydb).collection("keys").findOne({name: username});
     return result;
 }
 
@@ -49,8 +57,31 @@ async function serviceFindAll(){
     return massResult;
 }
 
+async function serviceSwitch(newDB){
+    console.log("service switch is active");
+    let res = await selDB(newDB);
+    if (res){
+        return true;
+    }
+    else return false;
+}
+
+async function postUser(username){
+    console.log("service postUser is active");
+    let connection = await conn_run();
+    const generateHash = new RandomHash({length: 32, charset: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_'});
+    let Hashkey = generateHash();
+    console.log(Hashkey);
+    let result = await connection.db(mydb).collection("keys").insertOne({name: username, key: Hashkey});
+    console.log(result);
+    return result;
+}
+
 module.exports = {
     serviceSearch,
     serviceAppend, 
-    serviceFindAll
+    serviceFindAll,
+    serviceSwitch,
+    getUser,
+    postUser
 }
