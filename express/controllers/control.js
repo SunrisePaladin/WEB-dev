@@ -1,14 +1,12 @@
 const {serviceSearch: service1, 
     serviceAppend: service2, 
     serviceFindAll: service3, 
-    serviceSwitch: service4,
-    getUser: service5,
-    postUser: service6} = require('../services/serv');
+    serviceSwitch: service4} = require('../services/serv');
 const {ObjectId} = require('mongodb'); 
 
 let result="";
 
-async function control1(req, res){
+async function ctrlFindOne(req, res){
     console.log("control 1");
     let mode = req.params['mode'];
     let value = req.query.value;
@@ -27,7 +25,7 @@ async function control1(req, res){
     }
 }
 
-async function control2(req, res){
+async function ctrlInsert(req, res){
     console.log("control 2");
     console.log(req.params['reqdb']);
 
@@ -48,11 +46,11 @@ async function control2(req, res){
         result = await service2(object);
         if (result == null) result = "not found";
         console.log(result);
-        res.send(result);
+        res.status(200).send(result);
     }
 }
 
-async function control3(req, res){
+async function ctrlFindAll(req, res){
     console.log("control 3");
     let massive = await service3();
     console.table(massive);
@@ -66,7 +64,7 @@ async function control3(req, res){
     }
 }
 
-async function control4(req, res){
+async function ctrlDBswitch(req, res){
     console.log("control 4");
     let newDB = req.params['db'];
     let result = await service4(newDB);
@@ -78,36 +76,9 @@ async function control4(req, res){
     }
 }
 
-async function control5(req, res){
-    console.log("control 5");
-    new_name = req.params['id'];
-    let result = await service5(new_name);
-    if (result == null) {
-        result = "not found";
-        res.status(400).send(result);
-    }
-    else{
-        console.log(result);
-        res.status(200).send(`The key of ${result.name} is ${result.key}` );
-    }
-}
-
-async function control6(req, res){
-    if (req.body.username == null){
-        console.log("no user persisted");
-        res.status(404).send("User not found");
-    }
-    else{
-        let result = await service6(req.body.username);
-    }
-    res.status(200).send("end of service");
-}
-
-module.exports ={
-    control1,
-    control2,
-    control3,
-    control4,
-    control5,
-    control6
+module.exports = {
+    ctrlFindOne, //find one
+    ctrlInsert, //add one
+    ctrlFindAll, //find all
+    ctrlDBswitch, //DB switch
 }

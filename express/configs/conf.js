@@ -37,22 +37,6 @@ function getDefault(mode){
     }
 }
 
-// async function selectDB(suggestDB){
-//     if(!suggestDB){
-//         throw new Error('Database is not defined');    
-//     }
-//     try{
-//         console.log(`Trying to connect to a database ${suggestDB}`);
-//         let resp = await connection.db(suggestDB);
-//     }
-//     catch(err){
-//         throw new Error(`Database ${suggestDB} not found`);
-//     }
-//     finally{
-//         return true;
-//     }
-// }
-
 async function selectDB(suggestDB){
     let connection = await run();
     let result = await connection.db(suggestDB);
