@@ -36,6 +36,9 @@
     "nodemon": "^2.0.22",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
-    "random-hash": "^4.0.1"
+    "random-hash": "^4.0.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui": "^4.19.0",
+    "swagger-ui-express": "^4.6.3"
   }
 }
