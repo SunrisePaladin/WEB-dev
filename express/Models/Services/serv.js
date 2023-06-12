@@ -86,6 +86,8 @@ async function serviceModels(param){
 async function serviceAddModel(object){
     console.log("service add model is active");
     let connection = await conn_run();
+    let crdate = new Date();
+    object['cr_time'] = crdate;
     let result = await connection.db(mydb).collection("models").insertOne(object);
     return result;
 }
