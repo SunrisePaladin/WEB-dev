@@ -1,0 +1,461 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "SWAGGER UI json",
+    "version": "1.1"
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "description": "ключ для авторизации",
+        "type": "apiKey",
+        "name": "X-API-Key",
+        "in": "header"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:5501/v3"
+    }
+  ],
+  "tags": [
+    {
+      "name": "user",
+      "description": "Tampering with user credentials"
+    },
+    {
+      "name": "models",
+      "description": "Operations on models"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "hello message",
+            "content": {
+              "plain/text": {
+                "schema": {
+                  "type": "string",
+                  "description": "Hello world!"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "object ID of the user to get"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns user key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "description": "main page v3"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "user not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "description": "user was not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "responses": {
+          "200": {
+            "description": "returns user key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "description": "main page v3"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "user not found",
+            "content": {
+              "plaint/text": {
+                "schema": {
+                  "type": "string",
+                  "description": "user was not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/models/{id}": {
+      "get": {
+        "tags": [
+          "models"
+        ],
+        "description": "return one certain model",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "ObjectID of the model to get"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get these models!"
+          },
+          "501": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "models"
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "description": "Update an existing model",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "ObjectID of the model to update"
+          }
+        ],
+        "requestBody": {
+          "description": "place new fileds to update the model",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_name": {
+                    "type": "string",
+                    "description": "creator name"
+                  },
+                  "model_name": {
+                    "type": "string",
+                    "description": "new model name"
+                  },
+                  "model_type": {
+                    "type": "string",
+                    "description": "geometrical type"
+                  },
+                  "json_file": {
+                    "type": "object",
+                    "description": "insert your json here"
+                  },
+                  "desc": {
+                    "type": "string",
+                    "description": "any description"
+                  },
+                  "comms": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": [
+                        "comm1",
+                        "comm2",
+                        "comm3"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Updated"
+          },
+          "401": {
+            "description": "Unsuccessfully"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "models"
+        ],
+        "description": "delete an existing model",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "ObjectID of the model to delete"
+          }
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          },
+          "401": {
+            "description": "Unsuccessfully"
+          }
+        }
+      }
+    },
+    "/models": {
+      "post": {
+        "tags": [
+          "models"
+        ],
+        "description": "Create a new model",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "bububu",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_name": {
+                    "type": "string",
+                    "description": "creator name"
+                  },
+                  "model_name": {
+                    "type": "string",
+                    "description": "new model name"
+                  },
+                  "model_type": {
+                    "type": "string",
+                    "description": "geometrical type"
+                  },
+                  "json_file": {
+                    "type": "object",
+                    "description": "insert your json here"
+                  },
+                  "desc": {
+                    "type": "string",
+                    "description": "any description"
+                  },
+                  "comms": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": [
+                        "comm1",
+                        "comm2",
+                        "comm3"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "description": "return OK"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "everything is fine"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "description": "return fail"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Unathorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unsuccessfully",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "status of response"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "comment added"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "models"
+        ],
+        "description": "Return all models",
+        "responses": {
+          "200": {
+            "description": "List of all models",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "user_name": {
+                        "type": "string",
+                        "description": "creator name"
+                      },
+                      "model_name": {
+                        "type": "string",
+                        "description": "new model name"
+                      },
+                      "model_type": {
+                        "type": "string",
+                        "description": "geometrical type"
+                      },
+                      "json_file": {
+                        "type": "object",
+                        "description": "insert your json here"
+                      },
+                      "desc": {
+                        "type": "string",
+                        "description": "any description"
+                      },
+                      "comms": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "example": [
+                          "comm1",
+                          "comm2",
+                          "comm3"
+                        ]
+                      }
+                    }
+                  },
+                  "example": [
+                    {
+                      "_id": "id1",
+                      "model_name": "name1"
+                    },
+                    {
+                      "_id": "id2",
+                      "model_name": "name2"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "description": "return fail"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Unathorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unsuccessfully"
+          }
+        }
+      }
+    }
+  }
+}
