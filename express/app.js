@@ -39,20 +39,20 @@ const { router: exportRouterV2 } = require('./mongoDB');
 const { router: exportRouterV3 } = require('./Models/models');
 const {errLog: errCatch} = require('./Models/Errors/errCatcher');
 
-const host = "127.0.0.1";
+const hostname = "127.0.0.1";
 const port = 5501;
 const app = express();
 
-let corsOptions = {
-    origin: 'http://127.0.0.1:5501',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
+// let corsOptions = {
+//     origin: 'http://127.0.0.1:5501',
+//     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// }
 
 app.listen(port, () => {
-    console.log(`The app is listening on port ${port} and host ${host}`);
+    console.log(`The app is listening on port ${port} and host ${hostname}`);
 })
 
-//app.use(cors(corsOptions));
+app.use(cors());
 app.use(errCatch);
 //app.use('/swagger-ui', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 app.use('/swagger-ui', swaggerUI.serve, swaggerUI.setup(openapi_json));
@@ -66,7 +66,7 @@ app.use('/v1', exportRouterV1);
 app.use('/v2', exportRouterV2);
 app.use('/v3', exportRouterV3);
 
-app.get('/coding', cors(corsOptions), (req, res) => {     
+app.get('/coding', cors(), (req, res) => {     
         res.json({         
         message: 'Happy Coding'    
     }); 
