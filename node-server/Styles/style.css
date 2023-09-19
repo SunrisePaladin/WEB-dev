@@ -3,11 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap');
 
 body {
-    background-image: url("/Pic/zhaba.png");
+    background-color: aliceblue;
+    /* background-image: url("/Pic/zhaba.png");
     background-size: cover;
     background-repeat: repeat;
     background-position: center;
-    background-size: 5%;
+    background-size: 5%; */
 }
 
 header{
