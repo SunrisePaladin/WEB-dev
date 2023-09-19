@@ -31,7 +31,7 @@ function generateHTMLTable(array) {
         html += `<tr><td>${array[i][0]}</td><td>${array[i][1]}</td></tr>`;
     }
     html += '</table>';
-    return html
+    return html;
 }
 
 function getAllUrlParams(url) {

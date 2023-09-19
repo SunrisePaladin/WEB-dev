@@ -5,7 +5,7 @@ const express = require('express');
 const fs = require('fs');
 
 const host = "127.0.0.1";
-const port = 5500;
+const port = 5502;
 const app = express();
 
 let comments = ['comment 1', 'comment 2', 'comment 3', 'comment 4'];

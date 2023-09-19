@@ -70,7 +70,7 @@
               "application/json": {
                 "schema": {
                   "type": "string",
-                  "description": "main page v3"
+                  "description": "key value for an user"
                 }
               }
             }

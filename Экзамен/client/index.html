@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- <script defer src="main.js"></script> -->
+    <title>Document</title>
+</head>
+<body>
+    <h1>Список моделей по паролям</h1>
+    <!-- <form id="searchInputForm">
+        <label for="searchInput">Поиск</label>
+        <input id="searchInput" placeholder="name of model" type="text">
+    </form> -->
+    <!-- <table class="models-info-table">
+        <thead>
+            <th>
+                Show
+            </th>
+        </thead>
+    </table> -->
+    <form id="form1" name="register" method="post">
+        <fieldset>
+            <legend>Форма</legend>
+            <div class="formed">
+                <p><label for="id1" class="form_head">Введите пароль</label></p>
+                <input id="id1" type="text" minLength="8" class="form_txt" name="date" placeholder="Пароль" required>
+                <p id="error1" class="err_msg"></p>
+            </div>
+            <div class="underlink">
+                <!-- <button id="btn1" type="button">Show</button> -->
+                <input type="submit" id="btn1">
+            </div>
+        </fieldset>
+    </form>
+    <p class="empty-text-default">Моделей в базе нет</p>
+    <script>
+        fetch("http://127.0.0.1:5002/Exam/models").then(res => res.json()).then(data => {console.log(data);})
+    </script>
+</body>
+</html>

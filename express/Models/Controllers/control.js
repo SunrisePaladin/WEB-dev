@@ -44,7 +44,7 @@ async function ctrlFindOne(req, res, next){
             result = await servFind(value, mode);
             if (result == null) result = "not found";
             console.log(result);
-            res.send(result);
+            res.send(result);  
         }
     }
     catch(error){
