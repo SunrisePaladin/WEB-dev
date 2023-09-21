@@ -1,7 +1,8 @@
 const {serviceSearch: service1, 
     serviceAppend: service2, 
     serviceFindAll: service3, 
-    serviceSwitch: service4} = require('../services/serv');
+    serviceSwitch: service4, 
+    postUser: service5} = require('../services/serv');
 const {ObjectId} = require('mongodb'); 
 
 let result="";

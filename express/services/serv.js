@@ -53,7 +53,7 @@ async function serviceFindAll(){
     console.log("service find all is active");
     let connection = await conn_run();
     massResult = await connection.db(mydb).collection(coll).find({}).toArray();
-    //console.log(massResult);
+    console.log(massResult);
     return massResult;
 }
 
@@ -73,7 +73,7 @@ async function postUser(username){
     let Hashkey = generateHash();
     console.log(Hashkey);
     let result = await connection.db(mydb).collection("keys").insertOne({name: username, key: Hashkey});
-    //console.log(result);
+    console.log(result);
     return result;
 }
 

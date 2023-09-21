@@ -131,7 +131,7 @@ router.get('/stats', (req, res) => {
 router.get('/', (req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'image/gif');
-    res.end(fs.readFileSync(`${__dirname}/public/flaming-fart.gif`));
+    res.end(fs.readFileSync(`${__dirname}/public/doge.jpg`));
 });
 
 router.get('/index', (req, res) => {
