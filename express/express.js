@@ -88,6 +88,12 @@ router.use(
     })
 );
 
+router.use(
+    helmet({
+        xDownloadOptions: false,
+    })
+);
+
 router.use(morgan('normal'));
 router.use(helmet());
 router.use(express.json());
