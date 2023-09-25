@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
     res.status(200).send('Hello World V3!');
 });
 
-router.get('/user/:id', userget, errCatch);
+router.post('/user/:id', userget, errCatch);
 router.post('/user', userpost, errCatch);
 router.delete('/deleteByKey', deleteDoc, errCatch);
 

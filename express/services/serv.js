@@ -14,6 +14,7 @@ async function serviceSearch(value, mode){
     console.log("service search is active");
     let connection = await conn_run();
     result = "unregistered mode";
+    console.log(value);
     switch (mode){
         case "name":   
             result = await connection.db(mydb).collection(coll).findOne({name: value});

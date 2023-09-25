@@ -16,8 +16,9 @@ router.get('/', (req, res) => {
 });
 
 router.get('/search/:mode', func_ctrlFindOne);
-router.get('/add', func_insert);
+router.post('/add', func_insert);
 router.get('/search_all', func_ctrlFindAll);
+router.get('/comments', func_ctrlFindAll);
 //router.post('/switchDB/:db', func_ctrlDBswitch)
 
 module.exports = {
