@@ -1,22 +1,22 @@
 
-let v = new Vue({
-    el: ".vue",
-    data:{
-        message: "Hello world"
-    },
-    methods:{
-        change: function(){
-            this.message = prompt("New msg");
-        }
-    }
-})
+// let v = new Vue({
+//     el: ".vue",
+//     data:{
+//         message: "Hello world"
+//     },
+//     methods:{
+//         change: function(){
+//             this.message = prompt("New msg");
+//         }
+//     }
+// })
 
-let s = new Vue({
-    el: ".sel",
-    data:{
-        prog: ""
-    }
-})
+// let s = new Vue({
+//     el: ".sel",
+//     data:{
+//         prog: ""
+//     }
+// })
 
 let blog = new Vue({
     el: ".vue-profile",
