@@ -14,10 +14,10 @@
 </head>
 
 <body>
-    <header>
+    <header style="min-height:0rem">
     </header>
     <main>
-        <div class = "vue">
+        <!-- <div class = "vue">
             <p>{{message}}</p>
             <button type="button" v-on:click="change">Change message</button>
         </div>
@@ -30,8 +30,19 @@
                 <option>Vue</option>
             </select>
             <p> Experienced in: {{ prog }}</p>
+        </div> -->
+
+        <div class = "vue-profile" style="margin-top:15px;">
+            <p>{{name}}</p>
+            <button type="button" v-on:click="name_change">Задайте имя</button>
+            <p>{{biography}}</p>
+            <button type="button" v-on:click="bio_change">Введите описание</button>
         </div>
 
+        <div class = "vue-post" style="margin-top:15px;">
+            <button type="button" v-on:click="add_post">Введите новое сообщение:</button>
+            <p id="wall">{{blog}}</p>
+        </div>
 
         <!-- <section>
             <h1>Main form</h1>
