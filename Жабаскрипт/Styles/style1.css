@@ -347,10 +347,11 @@ section{
 .m_btn{
     border-color: var(--btn_1) var(--btn_2) var(--btn_3);
     background-color: var(--btn-colour); 
-    margin-top:30px;
-    margin-bottom: 15px;
+    /* margin-top:30px; */
+    /* margin-bottom: 15px; */
+    margin-left:10px;
     width: 345px; 
-    height: 50px;
+    height: 40px;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 600;

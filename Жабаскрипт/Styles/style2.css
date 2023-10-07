@@ -11,11 +11,11 @@ html, body { height: 100%;}
 body  footer {
     position: sticky;
     top: 100vh;
-  }
+}
 
 form{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: inherit;
     gap:20px
@@ -28,7 +28,7 @@ fieldset{
 
 .formed{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 }
 
@@ -80,7 +80,7 @@ input::placeholder{
 }
 
 
-button:focus{
+/* button:focus{
     border-radius: 1.5rem;
     font-size: larger;
 }
@@ -94,7 +94,7 @@ button:active{
 button:hover{
     text-decoration:dashed;
     background-color: black;
-}
+} */
 
 ::selection {
     color: gold;
